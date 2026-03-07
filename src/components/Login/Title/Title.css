@@ -1,0 +1,82 @@
+/* src/components/Login/Title/Title.css */
+.title-container {
+  position: relative;
+  margin-top: 160px;
+  max-width: 280px;
+}
+
+/* Адаптив для 375px */
+@media screen and (min-width: 375px) {
+  .title-container {
+    max-width: 335px;
+  }
+}
+
+/* Адаптив для планшета */
+@media screen and (min-width: 768px) {
+  .title-container {
+    max-width: 614px;
+    margin-top: 272px;
+  }
+}
+
+/* Адаптив для десктопа */
+@media screen and (min-width: 1440px) {
+  .title-container {
+    margin-top: 370px;
+  }
+}
+
+.title-heading {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.21;
+  color: #111827;
+  margin: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 375px) {
+  .title-heading {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title-heading {
+    font-size: 54px;
+    line-height: 1.11;
+  }
+}
+
+.title-heading strong {
+  color: #10b981; /* accent-color */
+}
+
+.title-picture {
+  position: absolute;
+  top: -58px;
+  right: 25px;
+}
+
+.medicine-image {
+  width: 85px;
+  height: 83px;
+}
+
+@media screen and (min-width: 768px) {
+  .title-picture {
+    top: -115px;
+  }
+
+  .medicine-image {
+    width: 179px;
+    height: 175px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title-picture {
+    right: 0;
+  }
+}
