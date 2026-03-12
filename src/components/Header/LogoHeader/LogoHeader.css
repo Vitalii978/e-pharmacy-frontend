@@ -1,0 +1,29 @@
+/* Стили для ссылки-логотипа в шапке */
+.logo-header-link {
+  display: inline-block; /* Строчно-блочный элемент */
+  width: 32px; /* Ширина 32px */
+  height: 32px; /* Высота 32px */
+}
+
+/* Стили для картинки логотипа */
+.logo-header-image {
+  width: 100%; /* На всю ширину родителя */
+  height: 100%; /* На всю высоту родителя */
+  object-fit: contain; /* Вписать без искажений */
+}
+
+/* Медиа-запрос для планшетов */
+@media screen and (min-width: 768px) {
+  .logo-header-link {
+    width: 40px; /* Больше ширина */
+    height: 40px; /* Больше высота */
+    margin-left: -16px; /* Сдвиг влево */
+  }
+}
+
+/* Медиа-запрос для десктопа */
+@media screen and (min-width: 1440px) {
+  .logo-header-link {
+    margin-left: 0px; /* Возвращаем на место */
+  }
+}

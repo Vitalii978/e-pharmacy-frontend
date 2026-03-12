@@ -1,0 +1,48 @@
+/* Основные стили для шапки */
+.header {
+  padding: 0 20px; /* Отступы справа и слева 20px */
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1); /* Рамка снизу */
+  position: fixed; /* Фиксированная позиция (всегда сверху) */
+  width: 100%; /* На всю ширину */
+  background-color: #f7f8fa; /* Цвет фона */
+  z-index: 100; /* Поверх всего */
+  top: 0; /* Прижато к верху */
+}
+
+/* Контейнер для левой части шапки */
+.header-container {
+  display: flex; /* Элементы в ряд */
+  align-items: center; /* Выравнивание по вертикали */
+  justify-content: flex-start; /* Слева направо */
+  column-gap: 8px; /* Расстояние между элементами 8px */
+  padding: 17px 0; /* Отступы сверху/снизу 17px */
+}
+
+/* Медиа-запрос для телефонов побольше */
+@media screen and (min-width: 375px) {
+  .header-container {
+    column-gap: 20px; /* Увеличиваем расстояние */
+  }
+}
+
+/* Медиа-запрос для планшетов */
+@media screen and (min-width: 768px) {
+  .header-container {
+    column-gap: 32px; /* Еще больше расстояние */
+    padding: 15px 0; /* Меньше отступы */
+  }
+}
+
+/* Медиа-запрос для десктопа */
+@media screen and (min-width: 1440px) {
+  .header {
+    padding: 0 40px 0 20px; /* Отступы: справа 40px, слева 20px */
+    display: flex; /* Элементы в ряд */
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: space-between; /* Равномерно по краям */
+  }
+
+  .header-container {
+    column-gap: 60px; /* Расстояние 60px */
+  }
+}

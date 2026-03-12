@@ -1,146 +1,11 @@
 // // src/components/Login/LoginForm/LoginForm.jsx
-// import React, { useState } from 'react';
-// import { useForm } from 'react-hook-form';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from 'yup';
-// import axios from 'axios';
-// import './LoginForm.css';
-
-// // Создаем схему валидации с Yup
-// const loginSchema = yup.object({
-//   email: yup
-//     .string()
-//     .email('Invalid email format')
-//     .required('Email is required'),
-//   password: yup
-//     .string()
-//     .min(6, 'Password must be at least 6 characters')
-//     .required('Password is required'),
-// });
-
-// const LoginForm = () => {
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [serverError, setServerError] = useState('');
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   // Настройка react-hook-form с валидацией Yup
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm({
-//     resolver: yupResolver(loginSchema),
-//     mode: 'onBlur', // Валидация при потере фокуса
-//   });
-
-//   // Обработка отправки формы
-//   const onSubmit = async formData => {
-//     setIsLoading(true);
-//     setServerError('');
-
-//     try {
-//       // Отправляем запрос на бекенд
-//       const response = await axios.post(
-//         'http://localhost:3000/api/user/login',
-//         {
-//           email: formData.email,
-//           password: formData.password,
-//         }
-//       );
-
-//       // Сохраняем токен и данные пользователя
-//       localStorage.setItem('token', response.data.token);
-//       localStorage.setItem(
-//         'user',
-//         JSON.stringify({
-//           name: response.data.name,
-//           email: response.data.email,
-//         })
-//       );
-
-//       console.log('Login successful:', response.data);
-
-//       // Здесь потом будет редирект на Dashboard
-//       window.location.href = '/dashboard'; // временно
-//     } catch (error) {
-//       // Обрабатываем ошибки от сервера
-//       const errorMessage =
-//         error.response?.data?.message || 'Login failed. Please try again.';
-//       setServerError(errorMessage);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   const togglePasswordVisibility = () => {
-//     setShowPassword(!showPassword);
-//   };
-
-//   return (
-//     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-//       {/* Поле Email */}
-//       <div className="form-group">
-//         <label htmlFor="email" className="visually-hidden">
-//           Email address
-//         </label>
-//         <input
-//           id="email"
-//           type="email"
-//           className={`form-input ${errors.email ? 'input-error' : ''}`}
-//           placeholder="Email address"
-//           {...register('email')}
-//         />
-//         {errors.email && (
-//           <p className="error-message">{errors.email.message}</p>
-//         )}
-//       </div>
-
-//       {/* Поле Password */}
-//       <div className="form-group password-group">
-//         <label htmlFor="password" className="visually-hidden">
-//           Password
-//         </label>
-//         <input
-//           id="password"
-//           type={showPassword ? 'text' : 'password'}
-//           className={`form-input ${errors.password ? 'input-error' : ''}`}
-//           placeholder="Password"
-//           {...register('password')}
-//         />
-
-//         {/* Кнопка показа/скрытия пароля */}
-//         <button
-//           type="button"
-//           className="password-toggle"
-//           onClick={togglePasswordVisibility}
-//           aria-label={showPassword ? 'Hide password' : 'Show password'}
-//         >
-//           {showPassword ? '👁️' : '👁️‍🗨️'}
-//         </button>
-
-//         {errors.password && (
-//           <p className="error-message">{errors.password.message}</p>
-//         )}
-//       </div>
-
-//       {/* Ошибка от сервера */}
-//       {serverError && <p className="server-error">{serverError}</p>}
-
-//       {/* Кнопка отправки */}
-//       <button type="submit" className="submit-button" disabled={isLoading}>
-//         {isLoading ? 'Logging in...' : 'Log in'}
-//       </button>
-//     </form>
-//   );
-// };
-
-// export default LoginForm;
-
 // ИМПОРТЫ - берем готовые инструменты из библиотек
 import React, { useState } from 'react'; // useState - для создания переменных, которые можно менять (показать/скрыть пароль)
 import { useForm } from 'react-hook-form'; // useForm - главный инструмент для работы с формами (сам запоминает значения, сам проверяет ошибки)
 import { yupResolver } from '@hookform/resolvers/yup'; // yupResolver - связка между react-hook-form и yup (чтобы правила проверки работали)
+import { useDispatch } from 'react-redux'; // для отправки действий в Redux
 import * as yup from 'yup'; // yup - библиотека для создания правил проверки (email должен содержать @, пароль не меньше 7 символов)
+import { logIn } from '../../../redux/auth/operations'; // действие логина
 import sprite from '../../../assets/sprite.svg'; // sprite - файл со всеми иконками (глаз открытый, глаз закрытый)
 import './LoginForm.css'; // CSS файл со стилями именно для этого компонента
 
@@ -154,6 +19,8 @@ const schemaLogin = yup.object().shape({
 // КОМПОНЕНТ - главная часть, которая будет показываться на экране
 const LoginForm = () => {
   // Создаем компонент с именем LoginForm (это как рецепт пирога)
+
+  const dispatch = useDispatch(); // useDispatch - функция для отправки действий
 
   // СОСТОЯНИЯ - переменные, которые могут меняться
   const [showPassword, setShowPassword] = useState(false); // showPassword - показывает/скрывает пароль (false = скрыт, true = показан)
@@ -172,12 +39,13 @@ const LoginForm = () => {
 
   // ФУНКЦИЯ ДЛЯ ОТПРАВКИ - что делать, когда форму отправили правильно
   const onSubmit = data => {
-    // data - это объект с данными из формы { email: "что-то", password: "что-то" }
-    console.log(data); // пока просто показываем в консоли (потом заменим на отправку на сервер)
+    // Отправляем действие logIn с данными из формы
+    // dispatch - "диспетчер", который отправляет действие в Redux
+    dispatch(logIn(data)); // data = { email, password }
   };
 
   // ФУНКЦИЯ ДЛЯ ГЛАЗИКА - что делать при нажатии на кнопку показа/скрытия пароля
-  const handleShowPassword = () => {
+  const togglePassword = () => {
     // функция вызывается при клике на глаз
     setShowPassword(!showPassword); // !showPassword - меняем на противоположное (было true станет false, было false станет true)
   };
@@ -216,7 +84,7 @@ const LoginForm = () => {
         <button // кнопка
           type="button" // type="button" - чтобы не отправляла форму (просто кнопка)
           className="password-toggle" // класс для стилей
-          onClick={handleShowPassword} // при клике вызываем handleShowPassword (меняет showPassword)
+          onClick={togglePassword} // при клике вызываем handleShowPassword (меняет showPassword)
         >
           <svg width={24} height={24}>
             {/*'// иконка из спрайта '*/}

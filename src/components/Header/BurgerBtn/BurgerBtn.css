@@ -1,0 +1,26 @@
+/* Стили для кнопки бургер-меню */
+.burger-btn {
+  background-color: transparent; /* Прозрачный фон */
+  border: none; /* Без рамки */
+  outline: none; /* Без обводки при фокусе */
+  display: flex; /* Включаем flexbox */
+  align-items: center; /* Выравнивание по центру вертикали */
+  justify-content: center; /* Выравнивание по центру горизонтали */
+  width: 38px; /* Ширина 38px */
+  height: 38px; /* Высота 38px */
+  cursor: pointer; /* Курсор-палец при наведении */
+}
+
+/* Стили для иконки внутри кнопки */
+.burger-btn svg {
+  min-width: 32px; /* Минимальная ширина 32px */
+  min-height: 32px; /* Минимальная высота 32px */
+  stroke: #1d1e21; /* Цвет обводки черный */
+}
+
+/* Медиа-запрос для десктопа - прячем кнопку */
+@media screen and (min-width: 1440px) {
+  .burger-btn {
+    display: none; /* На десктопе не показываем */
+  }
+}

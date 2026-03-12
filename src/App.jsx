@@ -1,53 +1,54 @@
-// // src/App.js
+// // ✅ src/App.tsx - главный компонент с маршрутами
+
 // import React from 'react';
-// import { Routes, Route, Navigate } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import LoginPage from './pages/LoginPage/LoginPage';
-// import './App.css';
 
 // function App() {
-//   // Проверяем, авторизован ли пользователь (есть ли токен)
-//   const isAuthenticated = !!localStorage.getItem('token');
-
 //   return (
 //     <Routes>
-//       <Route
-//         path="/login"
-//         element={
-//           isAuthenticated ? <Navigate to="/dashboard" replace /> : <LoginPage />
-//         }
-//       />
-//       <Route path="/" element={<Navigate to="/login" replace />} />
-//       {/* Временно, потом добавим защищенные маршруты */}
-//       <Route
-//         path="/dashboard"
-//         element={
-//           isAuthenticated ? (
-//             <div>Dashboard (защищенная страница)</div>
-//           ) : (
-//             <Navigate to="/login" replace />
-//           )
-//         }
-//       />
+//       {/* когда пользователь заходит на главную страницу (/), показываем Login */}
+//       <Route path="/" element={<LoginPage />} />
+//       {/* когда пользователь заходит на /login, тоже показываем Login */}
+//       <Route path="/login" element={<LoginPage />} />
 //     </Routes>
 //   );
 // }
 
 // export default App;
 
-// ✅ src/App.tsx - главный компонент с маршрутами
+import React, { useEffect, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from './redux/auth/operations';
+import { RestrictedRoute } from './components/RestrictedRoute';
+import { PrivateRoute } from './components/PrivateRoute';
 
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage/LoginPage';
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      {/* Страница логина - доступна только НЕавторизованным */}
+      <Route
+        path="/login"
+        element={
+          <RestrictedRoute redirectTo="/dashboard">
+            <LoginPage />
+          </RestrictedRoute>
+        }
+      />
+
+      {/* Здесь будут защищенные маршруты */}
+      <Route path="/" element={<div>Главная (заглушка)</div>} />
+      <Route path="/dashboard" element={<div>Dashboard (заглушка)</div>} />
+    </Routes>
   );
 }
 
