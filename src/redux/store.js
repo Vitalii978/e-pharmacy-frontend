@@ -35,11 +35,6 @@ export const store = configureStore({
     }),
 });
 
-// Временно для отладки - сделаем store глобальным
-if (typeof window !== 'undefined') {
-  window.store = store;
-}
-
 // Создаем persistor для сохранения состояния
 export const persistor = persistStore(store);
 
