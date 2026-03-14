@@ -1,0 +1,21 @@
+/* ============================================
+   SharedLayout.css - СТИЛИ ДЛЯ ОБЩЕЙ ОБОЛОЧКИ
+   ============================================ */
+
+.shared-layout {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+.layout-container {
+  display: flex;
+  padding-top: 80px; /* высота шапки */
+  min-height: 100vh;
+}
+
+.layout-content {
+  flex: 1;
+  margin-left: 80px; /* ширина сайдбара */
+  padding: 24px;
+  background-color: var(--bg-main);
+}

@@ -1,0 +1,37 @@
+/* ============================================
+   DashboardPage.css - СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
+   ============================================ */
+
+/* 1. Главный контейнер */
+.dashboard-page {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* 2. Заголовок страницы */
+.dashboard-page h1 {
+  color: var(--main-black);
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* 3. Ряд с компонентами */
+.dashboard-row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* 4. Десктоп - компоненты в ряд */
+@media screen and (min-width: 1440px) {
+  .dashboard-row {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .dashboard-row > * {
+    flex: 1;
+  }
+}

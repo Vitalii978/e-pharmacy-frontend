@@ -1,35 +1,47 @@
-import React, { useState } from 'react'; // Импорт React и useState
-import { useMediaQuery } from 'react-responsive'; // Хук для определения размера экрана
-import BurgerBtn from './BurgerBtn/BurgerBtn'; // Импорт кнопки бургера
-import LogoHeader from './LogoHeader/LogoHeader'; // Импорт логотипа
-import HeaderTitle from './HeaderTitle/HeaderTitle'; // Импорт заголовков
-import LogoutBtn from './LogoutBtn/LogoutBtn'; // Импорт кнопки выхода
-// import MobileMenu from '../MobileMenu/MobileMenu'; // Импорт мобильного меню
-import './Header.css'; // Импорт стилей
+// ИМПОРТЫ
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth } from '../../hooks/useAuth';
+import { logOut } from '../../redux/auth/operations';
+import sprite from '../../assets/sprite.svg';
+import './Header.css';
 
+// КОМПОНЕНТ
 const Header = () => {
-  // Компонент шапки
-  const isDesktop = useMediaQuery({ minWidth: 1440 }); // Проверяем, десктоп ли (ширина >= 1440px)
-  const [isShowMobileMenu, setIsShowMobileMenu] = useState(false); // Состояние: показывать мобильное меню или нет
+  // Получаем функцию dispatch для отправки действий
+  const dispatch = useDispatch();
+  // Получаем данные пользователя из хука useAuth
+  const { user } = useAuth();
 
+  // Функция для выхода из системы
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
+
+  // JSX - ЧТО ПОКАЗЫВАЕМ
   return (
     <header className="header">
-      {' '}
-      // Тег header
-      <div className="header-container">
-        {' '}
-        // Контейнер для левой части
-        <BurgerBtn setIsShowMobileMenu={setIsShowMobileMenu} /> // Кнопка
-        бургера
-        <LogoHeader /> // Логотип
-        <HeaderTitle /> // Заголовки
+      {/* Левая часть шапки (пустая, потом добавим бургер и лого) */}
+      <div className="header-left">
+        {/* Здесь будет BurgerBtn и LogoHeader позже */}
       </div>
-      {isDesktop && <LogoutBtn />} // Если десктоп, показываем кнопку выхода
-      {/* {isShowMobileMenu && ( // Если надо показать мобильное меню
-        <MobileMenu setIsShowMobileMenu={setIsShowMobileMenu} /> // Показываем мобильное меню
-      )} */}
+
+      {/* Центральная часть с заголовком (потом добавим HeaderTitle) */}
+      <div className="header-center">
+        <h1>Medicine Store</h1>
+        <p>Dashboard | {user?.email}</p>
+      </div>
+
+      {/* Правая часть с кнопкой выхода */}
+      <div className="header-right">
+        <button className="logout-btn" onClick={handleLogout}>
+          <svg width={16} height={16}>
+            <use xlinkHref={`${sprite}#icon-logout`} />
+          </svg>
+        </button>
+      </div>
     </header>
   );
 };
 
-export default Header; // Экспорт компонента
+export default Header;

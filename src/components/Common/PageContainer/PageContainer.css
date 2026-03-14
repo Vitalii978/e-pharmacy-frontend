@@ -1,0 +1,25 @@
+/* ============================================
+   PageContainer.css - СТИЛИ ДЛЯ КОНТЕЙНЕРА
+   ============================================ */
+
+.page-container {
+  padding: 0 20px;
+  max-width: 375px;
+  width: 100%;
+  margin: 80px auto 0 auto; /* отступ сверху под шапку */
+  overflow-x: scroll; /* для горизонтальной прокрутки таблиц */
+}
+
+@media screen and (min-width: 768px) {
+  .page-container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .page-container {
+    max-width: 1360px; /* на десктопе контент не на всю ширину */
+    padding: 0 80px;
+  }
+}

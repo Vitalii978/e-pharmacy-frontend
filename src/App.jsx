@@ -1,34 +1,27 @@
-// // ✅ src/App.tsx - главный компонент с маршрутами
+// ============================================
+// App.jsx - ГЛАВНЫЙ КОМПОНЕНТ С МАРШРУТАМИ
+// ============================================
 
-// import React from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import LoginPage from './pages/LoginPage/LoginPage';
-
-// function App() {
-//   return (
-//     <Routes>
-//       {/* когда пользователь заходит на главную страницу (/), показываем Login */}
-//       <Route path="/" element={<LoginPage />} />
-//       {/* когда пользователь заходит на /login, тоже показываем Login */}
-//       <Route path="/login" element={<LoginPage />} />
-//     </Routes>
-//   );
-// }
-
-// export default App;
-
+// ИМПОРТЫ
 import React, { useEffect, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from './redux/auth/operations';
 import { RestrictedRoute } from './components/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 
+// Ленивая загрузка страниц
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
+const SharedLayout = lazy(
+  () => import('./components/SharedLayout/SharedLayout')
+);
 
+// КОМПОНЕНТ
 function App() {
   const dispatch = useDispatch();
 
+  // При загрузке приложения пытаемся восстановить сессию
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -45,25 +38,29 @@ function App() {
         }
       />
 
-      {/* Здесь будут защищенные маршруты */}
-      <Route path="/" element={<div>Главная (заглушка)</div>} />
-      <Route path="/dashboard" element={<div>Dashboard (заглушка)</div>} />
+      {/* Все защищенные страницы внутри SharedLayout */}
+      <Route
+        path="/"
+        element={
+          <PrivateRoute redirectTo="/login">
+            <SharedLayout />
+          </PrivateRoute>
+        }
+      >
+        {/* Редирект с / на /dashboard */}
+        <Route index element={<Navigate to="/dashboard" replace />} />
+
+        {/* Страница Dashboard */}
+        <Route path="dashboard" element={<DashboardPage />} />
+
+        {/* Здесь будут другие страницы (пока заглушки) */}
+        <Route path="orders" element={<div>Orders Page</div>} />
+        <Route path="products" element={<div>Products Page</div>} />
+        <Route path="suppliers" element={<div>Suppliers Page</div>} />
+        <Route path="customers" element={<div>Customers Page</div>} />
+      </Route>
     </Routes>
   );
 }
 
 export default App;
-
-// Объяснение:
-
-// BrowserRouter - обертка, которая включает навигацию на сайте
-
-// Routes - контейнер для всех маршрутов
-
-// Route - один маршрут
-
-// path="/" - адрес страницы (главная)
-
-// element={<Login />} - какой компонент показывать
-
-// Почему два Route с Login? Чтобы и на главной, и на /login была одна страница.

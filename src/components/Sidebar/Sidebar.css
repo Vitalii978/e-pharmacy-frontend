@@ -1,0 +1,50 @@
+/* ============================================
+   Sidebar.css - СТИЛИ ДЛЯ БОКОВОГО МЕНЮ
+   ============================================ */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 80px; /* высота шапки */
+  width: 80px;
+  height: calc(100vh - 80px);
+  background-color: var(--bg-main);
+  border-right: 1px solid var(--border-color);
+  padding: 24px 0;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sidebar-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-color);
+  border-radius: 50%;
+  transition: all var(--hover-effect);
+}
+
+.sidebar-link svg {
+  fill: var(--icons-color);
+}
+
+/* Активная ссылка */
+.sidebar-link.active {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-link.active svg {
+  fill: var(--accent-color);
+}
+
+/* Ховер */
+.sidebar-link:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}

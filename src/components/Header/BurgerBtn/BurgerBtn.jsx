@@ -1,40 +1,40 @@
-// ИМПОРТЫ
-import React from 'react'; // 1. Импортируем React - нужен для JSX
-import sprite from '../../../assets/sprite.svg'; // 2. Импортируем спрайт с иконками (там лежит иконка бургера)
-import './BurgerBtn.css'; // 3. Импортируем CSS стили для этой кнопки
+// // ============================================
+// // BurgerBtn.jsx - КНОПКА-БУРГЕР ДЛЯ МОБИЛЬНОГО МЕНЮ
+// // ============================================
 
-// ТИПИЗАЦИЯ ПРОПСОВ
-interface BurgerBtnProps {
-  // 4. Описываем, какие пропсы (входные данные) принимает компонент
-  setIsShowMobileMenu: (value: boolean) => void; // 5. Функция, которая будет открывать мобильное меню
-} //    принимает true/false, ничего не возвращает (void)
+// // 1. Импортируем React - нужен для JSX
+// import React from 'react';
 
-// КОМПОНЕНТ
-const BurgerBtn = ({ setIsShowMobileMenu }: BurgerBtnProps) => {
-  // 6. Создаем компонент, принимаем пропсы
+// // 2. Импортируем спрайт с иконками (там лежит иконка бургера)
+// import sprite from '../../../assets/sprite.svg';
 
-  // ФУНКЦИЯ-ОБРАБОТЧИК
-  const handleBurgerBtnClick = () => {
-    // 7. Создаем функцию, которая вызовется при клике
-    setIsShowMobileMenu(true); // 8. Вызываем функцию из пропсов, передаем true (открыть меню)
-  };
+// // 3. Импортируем CSS стили для этой кнопки
+// import './BurgerBtn.css';
 
-  // JSX - ЧТО ПОКАЗЫВАЕМ
-  return (
-    <button // 9. Обычная кнопка
-      type="button" {/*// 10. type="button" - чтобы не отправляла форму*/}
-      className="burger-btn" {/*// 11. Класс для CSS стилей*/}
-      onClick={handleBurgerBtnClick} {/*// 12. При клике вызываем нашу функцию*/}
-    >
-      <svg width={32} height={32}>
-        {' '}
-        {/*// 13. Иконка шириной 32px, высотой 32px*/}
-        <use xlinkHref={`${sprite}#icon-burger`} /> {/*14. Берем из спрайтаиконку с id="icon-burger"*/}
-        
-      </svg>
-    </button>
-  );
-};
+// // 4. КОМПОНЕНТ
+// //    Компонент принимает пропс setIsShowMobileMenu - функцию для открытия меню
+// const BurgerBtn = ({ setIsShowMobileMenu }) => {
+//   // 5. ФУНКЦИЯ-ОБРАБОТЧИК
+//   //    Эта функция будет вызвана при клике на кнопку
+//   const handleBurgerBtnClick = () => {
+//     // 6. Вызываем функцию из пропсов, передаем true (открыть меню)
+//     setIsShowMobileMenu(true);
+//   };
 
-// ЭКСПОРТ
-export default BurgerBtn; // 15. Разрешаем использовать этот компонент в других файлах
+//   // 7. JSX - ЧТО ПОКАЗЫВАЕМ
+//   return (
+//     <button
+//       type="button" // type="button" - чтобы не отправляла форму
+//       className="burger-btn" // класс для CSS стилей
+//       onClick={handleBurgerBtnClick} // при клике вызываем нашу функцию
+//     >
+//       <svg width={32} height={32}>
+//         {/* Иконка из спрайта с id="icon-burger" */}
+//         <use xlinkHref={`${sprite}#icon-burger`} />
+//       </svg>
+//     </button>
+//   );
+// };
+
+// // 8. ЭКСПОРТ - разрешаем использовать этот компонент в других файлах
+// export default BurgerBtn;
