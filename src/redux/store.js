@@ -11,7 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-import { dashboardReducer } from './dashboard/dashboardSlice'; // ← ДОБАВЬ ЭТОТ ИМПОРТ
+import { dashboardReducer } from './dashboard/dashboardSlice';
+import { ordersReducer } from './orders/ordersSlice';
 
 // Настройка сохранения токена в localStorage
 const authPersistConfig = {
@@ -26,7 +27,8 @@ export const store = configureStore({
     // auth: применяем persistReducer чтобы токен сохранялся
     auth: persistReducer(authPersistConfig, authReducer),
     // dashboard slice - БЕЗ сохранения (данные всегда свежие с сервера)
-    dashboard: dashboardReducer, // ← ДОБАВЬ ЭТУ СТРОКУ
+    dashboard: dashboardReducer,
+    orders: ordersReducer,
   },
   // Настройка middleware (нужно для redux-persist)
   middleware: getDefaultMiddleware =>
@@ -51,6 +53,6 @@ export const persistor = persistStore(store);
 // ============================================
 // ВРЕМЕННО - ДЛЯ ОТЛАДКИ В КОНСОЛИ
 // ============================================
-if (typeof window !== 'undefined') {
-  window.store = store; // ← ДЕЛАЕМ STORE ГЛОБАЛЬНЫМ
-}
+// if (typeof window !== 'undefined') {
+//   window.store = store; // ← ДЕЛАЕМ STORE ГЛОБАЛЬНЫМ
+// }

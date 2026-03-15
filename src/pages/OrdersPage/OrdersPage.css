@@ -1,0 +1,10 @@
+/* ============================================
+   OrdersPage.css - СТИЛИ ДЛЯ СТРАНИЦЫ ЗАКАЗОВ
+   ============================================ */
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--main-black);
+  margin-bottom: 24px;
+}

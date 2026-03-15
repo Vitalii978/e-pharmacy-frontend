@@ -2,12 +2,12 @@
    PageContainer.css - СТИЛИ ДЛЯ КОНТЕЙНЕРА
    ============================================ */
 
-.page-container {
+/* .page-container {
   padding: 0 20px;
   max-width: 375px;
   width: 100%;
-  margin: 80px auto 0 auto; /* отступ сверху под шапку */
-  overflow-x: scroll; /* для горизонтальной прокрутки таблиц */
+  margin: 80px auto 0 auto; 
+  overflow-x: scroll; 
 }
 
 @media screen and (min-width: 768px) {
@@ -19,7 +19,36 @@
 
 @media screen and (min-width: 1440px) {
   .page-container {
-    max-width: 1360px; /* на десктопе контент не на всю ширину */
+    max-width: 1360px; 
     padding: 0 80px;
+  }
+} */
+
+/* ============================================
+   PageContainer.css - СТИЛИ ДЛЯ КОНТЕЙНЕРА
+   ============================================ */
+
+/* 1. Основной контейнер */
+.page-container {
+  padding: 0 20px; /* отступы слева и справа */
+  max-width: 375px; /* максимальная ширина для мобильных */
+  width: 100%; /* занимает всю доступную ширину */
+  margin: 80px auto 0 auto; /* отступ сверху 80px (под шапку), центрирование */
+  overflow-x: auto; /* горизонтальная прокрутка если контент не влезает */
+}
+
+/* 2. Планшеты (от 768px) */
+@media screen and (min-width: 768px) {
+  .page-container {
+    max-width: 768px; /* больше ширина */
+    padding: 0 32px; /* больше отступы */
+  }
+}
+
+/* 3. Десктопы (от 1440px) */
+@media screen and (min-width: 1440px) {
+  .page-container {
+    max-width: 1360px; /* максимальная ширина для десктопа */
+    padding: 0 80px; /* большие отступы по бокам */
   }
 }
