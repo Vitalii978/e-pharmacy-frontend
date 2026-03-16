@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 
 // 3. getOrders - это действие (операция), которое мы импортируем из файла operations.js
 //    Оно отправит запрос на сервер и получит список заказов
-import { getOrders } from '../../redux/orders/operations';
+import { getOrders, getOrdersByQuery } from '../../redux/orders/operations';
 
 // 4. FilterBar - компонент с полем поиска и кнопкой фильтрации
 //    Этот компонент мы создадим отдельно
@@ -42,6 +42,18 @@ const OrdersPage = () => {
     dispatch(getOrders());
   }, [dispatch]); // Зависимость - если dispatch изменится, useEffect выполнится снова (но он не меняется)
 
+  // 7. Функция для поиска (вызывается из FilterBar)
+  const handleFilter = query => {
+    console.log('Ищем:', query); // для отладки
+    dispatch(getOrdersByQuery(query));
+  };
+
+  // 8. Функция для сброса фильтра
+  const handleReset = () => {
+    console.log('Сброс фильтра'); // для отладки
+    dispatch(getOrders());
+  };
+
   // 12. JSX - что увидит пользователь
   return (
     // 13. PageContainer - обертка с отступами
@@ -55,8 +67,8 @@ const OrdersPage = () => {
       {/*    onReset - функция, которая будет вызвана при сбросе (пока не реализовано) */}
       <FilterBar
         placeholder="User Name"
-        onFilter={query => console.log('Поиск:', query)}
-        onReset={() => console.log('Сброс')}
+        onFilter={handleFilter}
+        onReset={handleReset}
       />
 
       {/* 16. Компонент таблицы заказов (пока заглушка) */}
