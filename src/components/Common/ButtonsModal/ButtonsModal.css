@@ -1,0 +1,56 @@
+/* ============================================
+   ButtonsModal.css - СТИЛИ ДЛЯ КНОПОК МОДАЛКИ
+   ============================================ */
+
+.modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.modal-btn {
+  width: 146px;
+  height: 44px;
+  border-radius: 60px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--hover-effect);
+}
+
+/* Кнопка подтверждения (зеленая) */
+.confirm-btn {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.confirm-btn:hover {
+  background-color: var(--hover-accent);
+}
+
+/* Кнопка отмены (серая) */
+.cancel-btn {
+  background-color: var(--border-color);
+  color: var(--placeholder-color);
+}
+
+.cancel-btn:hover {
+  background-color: var(--icons-color);
+}
+
+/* Планшеты */
+@media screen and (min-width: 768px) {
+  .modal-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .modal-btn {
+    width: 133px;
+    font-size: 14px;
+  }
+}

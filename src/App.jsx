@@ -13,6 +13,9 @@ import { PrivateRoute } from './components/PrivateRoute';
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const OrdersPage = lazy(() => import('./pages/OrdersPage/OrdersPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage/ProductsPage')); // ← ДОБАВЛЯЕМ
+// const SuppliersPage = lazy(() => import('./pages/SuppliersPage/SuppliersPage'));
+// const CustomersPage = lazy(() => import('./pages/CustomersPage/CustomersPage'));
 const SharedLayout = lazy(
   () => import('./components/SharedLayout/SharedLayout')
 );
@@ -45,8 +48,8 @@ function App() {
       >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<DashboardPage />} />
-        <Route path="orders" element={<OrdersPage />} /> {/* ← НОВЫЙ МАРШРУТ */}
-        <Route path="products" element={<div>Products Page</div>} />
+        <Route path="orders" element={<OrdersPage />} />
+        <Route path="products" element={<ProductsPage />} /> {/* ← ДОБАВЛЯЕМ */}
         <Route path="suppliers" element={<div>Suppliers Page</div>} />
         <Route path="customers" element={<div>Customers Page</div>} />
       </Route>

@@ -1,0 +1,70 @@
+/* ============================================
+   Modal.css - СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА
+   ============================================ */
+
+/* Полупрозрачный фон */
+.modal-backdrop {
+  position: fixed;
+  background: var(--bg-backdrop);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+}
+
+/* Контейнер модалки */
+.modal-container {
+  background-color: var(--white-color);
+  max-width: 335px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  padding: 14px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Кнопка закрытия */
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal-close-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--main-black);
+}
+
+/* Планшеты */
+@media screen and (min-width: 768px) {
+  .modal-container {
+    max-width: 536px;
+    padding: 14px 40px 60px 40px;
+  }
+
+  .modal-close-btn {
+    right: 14px;
+  }
+
+  .modal-close-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+}

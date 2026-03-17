@@ -1,0 +1,26 @@
+// ============================================
+// useProducts.js - ХУК ДЛЯ ПОЛУЧЕНИЯ ДАННЫХ ПРОДУКТОВ
+// ============================================
+
+import { useSelector } from 'react-redux';
+import {
+  selectProducts,
+  selectCategories,
+  selectProductsError,
+  selectProductsLoading,
+} from '../redux/products/selectors';
+
+// Хук - это функция, которая использует другие хуки (useSelector)
+export const useProducts = () => {
+  const products = useSelector(selectProducts);
+  const categories = useSelector(selectCategories);
+  const productsLoading = useSelector(selectProductsLoading);
+  const productsError = useSelector(selectProductsError);
+
+  return {
+    products,
+    categories,
+    productsLoading,
+    productsError,
+  };
+};

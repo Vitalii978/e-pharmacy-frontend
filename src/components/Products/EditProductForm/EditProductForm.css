@@ -1,0 +1,111 @@
+/* ============================================
+   EditProductForm.css - СТИЛИ ДЛЯ ФОРМЫ РЕДАКТИРОВАНИЯ
+   ============================================ */
+
+/* Заголовок формы */
+.edit-form-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--main-black);
+  margin: 26px 0 20px 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Основная форма */
+.edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+/* Контейнер для двух полей в ряд */
+.edit-form-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Группа полей */
+.edit-form-group {
+  width: 100%;
+  position: relative;
+}
+
+/* Все инпуты */
+.edit-form-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 60px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--white-color);
+  transition: border-color var(--hover-effect);
+  box-sizing: border-box;
+}
+
+/* ХОВЕР для обычных инпутов */
+.edit-form-input:hover {
+  border-color: var(--accent-color);
+}
+
+.edit-form-input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: none;
+}
+
+.edit-form-input::placeholder {
+  color: var(--placeholder-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Скрытое поле */
+.edit-form-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+/* Текст ошибки */
+.edit-form-error {
+  color: var(--expense-color);
+  font-size: 10px;
+  margin: 4px 0 0 18px;
+  text-align: left;
+  height: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .edit-form-title {
+    font-size: 24px;
+    line-height: 1.17;
+    margin-bottom: 40px;
+  }
+
+  .edit-form-row {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .edit-form-group {
+    width: 224px;
+  }
+
+  .edit-form-input {
+    width: 224px;
+  }
+}

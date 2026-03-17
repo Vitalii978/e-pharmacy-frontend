@@ -1,0 +1,37 @@
+/* ============================================
+   AddProduct.css - СТИЛИ ДЛЯ КНОПКИ ДОБАВЛЕНИЯ
+   ============================================ */
+
+.add-product-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--main-black);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.add-product-btn svg {
+  width: 42px;
+  height: 42px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  stroke: var(--white-color);
+  transform: rotate(45deg);
+  transition: background-color var(--hover-effect);
+}
+
+.add-product-btn:hover svg {
+  background-color: var(--hover-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .add-product-btn {
+    font-size: 16px;
+  }
+}

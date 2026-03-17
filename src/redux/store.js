@@ -13,6 +13,8 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { dashboardReducer } from './dashboard/dashboardSlice';
 import { ordersReducer } from './orders/ordersSlice';
+import { suppliersReducer } from './suppliers/suppliersSlice';
+import { productsReducer } from './products/productsSlice'; //
 
 // Настройка сохранения токена в localStorage
 const authPersistConfig = {
@@ -29,6 +31,8 @@ export const store = configureStore({
     // dashboard slice - БЕЗ сохранения (данные всегда свежие с сервера)
     dashboard: dashboardReducer,
     orders: ordersReducer,
+    suppliers: suppliersReducer,
+    products: productsReducer,
   },
   // Настройка middleware (нужно для redux-persist)
   middleware: getDefaultMiddleware =>

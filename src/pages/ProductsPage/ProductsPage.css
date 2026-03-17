@@ -1,0 +1,47 @@
+/* ============================================
+   ProductsPage.css - СТИЛИ ДЛЯ СТРАНИЦЫ ПРОДУКТОВ
+   ============================================ */
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--main-black);
+  margin-bottom: 24px;
+}
+
+.products-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .products-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.temp-btn {
+  height: 44px;
+  padding: 0 24px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 60px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.temp-placeholder {
+  padding: 60px;
+  text-align: center;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--placeholder-color);
+  font-size: 16px;
+}
