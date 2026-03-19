@@ -2,27 +2,63 @@
    PageContainer.css - СТИЛИ ДЛЯ КОНТЕЙНЕРА
    ============================================ */
 
-/* 1. Основной контейнер */
+/* 
 .page-container {
-  padding: 0; /* отступы слева и справа */
-  max-width: 375px; /* максимальная ширина для мобильных */
-  width: 100%; /* занимает всю доступную ширину */
-  /* margin: 80px auto 0 auto; */
-  overflow-x: auto; /* горизонтальная прокрутка если контент не влезает */
+  padding: 0; 
+  max-width: 375px; 
+  width: 100%; 
+  margin: 0 auto;
+  overflow-x: auto; 
 }
 
-/* 2. Планшеты (от 768px) */
+
+
+
 @media screen and (min-width: 768px) {
   .page-container {
-    max-width: 768px; /* больше ширина */
-    padding: 0px; /* больше отступы */
+    max-width: 768px; 
+    padding: 0px; 
   }
 }
 
-/* 3. Десктопы (от 1440px) */
+
 @media screen and (min-width: 1440px) {
   .page-container {
-    max-width: 1360px; /* максимальная ширина для десктопа */
-    padding: 0px; /* большие отступы по бокам */
+    max-width: 1360px; 
+    padding: 0px; 
+  }
+} */
+
+/* ============================================
+   PageContainer.css - ОБЩИЙ КОНТЕЙНЕР ДЛЯ СТРАНИЦ
+   ============================================ */
+
+.page-container {
+  padding: 0 20px;
+  width: 100%;
+  margin: 80px auto 0 auto;
+  overflow-x: auto;
+}
+
+/* Мобильные (до 767px) */
+@media screen and (max-width: 767px) {
+  .page-container {
+    max-width: 374px;
+  }
+}
+
+/* Планшеты (768px - 1439px) */
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .page-container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+/* Десктоп (1440px и больше) */
+@media screen and (min-width: 1440px) {
+  .page-container {
+    max-width: 1200px; /* фиксированная ширина для центрирования */
+    padding: 0 40px;
   }
 }

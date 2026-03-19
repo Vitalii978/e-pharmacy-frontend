@@ -72,7 +72,7 @@ const ProductsPage = () => {
     // PageContainer - обертка с отступами (как на других страницах)
     <PageContainer>
       {/* Заголовок страницы */}
-      <h1 className="page-title">All products</h1>
+      {/* <h1 className="page-title">All products</h1> */}
 
       {/* 15. КОНТЕЙНЕР ДЛЯ ФИЛЬТРА И КНОПКИ */}
       {/*    Будет располагать их в ряд на планшетах и десктопе */}
