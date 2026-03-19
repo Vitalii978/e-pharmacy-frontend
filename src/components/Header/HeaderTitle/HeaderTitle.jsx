@@ -1,48 +1,62 @@
-// import React from 'react'; // Импорт React
-// import { useLocation } from 'react-router-dom'; // Хук для определения текущего пути
-// import { useAuth } from '../../../hooks/useAuth'; // Хук для получения данных пользователя
-// import './HeaderTitle.css'; // Импорт стилей
+// ============================================
+// HeaderTitle.jsx - ЗАГОЛОВОК В ШАПКЕ
+// ============================================
 
-// const HeaderTitle = () => {
-//   // Компонент заголовка в шапке
-//   // useLocation дает информацию о текущем URL
-//   const location = useLocation(); // Получаем текущий путь (например, "/dashboard")
-//   const { user } = useAuth(); // Получаем данные пользователя из Redux
+import React from 'react';
 
-//   // Определяем заголовок в зависимости от пути
-//   let title; // Переменная для заголовка
-//   switch (
-//     location.pathname // Проверяем текущий путь
-//   ) {
-//     case '/dashboard':
-//       title = 'Dashboard'; // Если путь /dashboard
-//       break;
-//     case '/orders':
-//       title = 'All orders'; // Если путь /orders
-//       break;
-//     case '/products':
-//       title = 'All products'; // Если путь /products
-//       break;
-//     case '/suppliers':
-//       title = 'All suppliers'; // Если путь /suppliers
-//       break;
-//     case '/customers':
-//       title = 'All customers'; // Если путь /customers
-//       break;
-//     default:
-//       title = 'Dashboard'; // По умолчанию
-//   }
+//    useLocation - хук из react-router-dom для получения текущего URL
+//    Нужен, чтобы определить, на какой странице мы находимся
+import { useLocation } from 'react-router-dom';
 
-//   return (
-//     <div className="header-title">
-//       {/* Название магазина  Контейнер для заголовков*/}
-//       <h1 className="header-main-title">Medicine store</h1>
-//       <p className="header-sub-title">
-//         {/* Название страницы и email пользователя */}
-//         {title} | {user.email} // Например: "Dashboard | admin@mail.com"
-//       </p>
-//     </div>
-//   );
-// };
+//    useAuth - наш кастомный хук для получения данных пользователя
+//    Нужен, чтобы показать email в шапке
+import { useAuth } from '../../../hooks/useAuth';
+import './HeaderTitle.css';
 
-// export default HeaderTitle; // Экспорт компонента
+const HeaderTitle = () => {
+  // 3. Получаем текущий путь (например, "/dashboard", "/orders")
+  const location = useLocation();
+
+  // 4. Получаем данные пользователя из Redux через хук
+  const { user } = useAuth();
+
+  // 5. Определяем название страницы по текущему пути
+  //    Переменная title будет показывать, где мы находимся
+  let title;
+
+  //    switch - проверяем разные варианты пути
+  switch (location.pathname) {
+    case '/dashboard':
+      title = 'Dashboard'; // если мы на /dashboard
+      break;
+    case '/orders':
+      title = 'All orders'; // если мы на /orders
+      break;
+    case '/products':
+      title = 'All products';
+      break;
+    case '/suppliers':
+      title = 'All suppliers';
+      break;
+    case '/customers':
+      title = 'All customers';
+      break;
+    default:
+      title = 'Dashboard';
+  }
+
+  return (
+    <div className="header-title">
+      {/* Название магазина - всегда одинаковое */}
+      <h1>Medicine store</h1>
+
+      {/* Название страницы и email пользователя */}
+      {/* user?.email - если user есть, показываем email, если нет - ничего */}
+      <p>
+        {title} | {user.email}
+      </p>
+    </div>
+  );
+};
+
+export default HeaderTitle;

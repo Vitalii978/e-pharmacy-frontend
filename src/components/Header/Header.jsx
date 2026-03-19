@@ -1,45 +1,50 @@
-// ИМПОРТЫ
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useAuth } from '../../hooks/useAuth';
-import { logOut } from '../../redux/auth/operations';
-import sprite from '../../assets/sprite.svg';
+// ============================================
+// Header.jsx - ШАПКА САЙТА (КАК В ПРИМЕРЕ)
+// ============================================
+
+import React, { useState } from 'react';
+//    useMediaQuery - хук для проверки размера экрана
+import { useMediaQuery } from 'react-responsive';
+import BurgerBtn from './BurgerBtn/BurgerBtn';
+import LogoHeader from './LogoHeader/LogoHeader';
+import HeaderTitle from './HeaderTitle/HeaderTitle';
+import LogoutBtn from './LogoutBtn/LogoutBtn';
+import MobileMenu from '../MobileMenu/MobileMenu';
 import './Header.css';
 
-// КОМПОНЕНТ
 const Header = () => {
-  // Получаем функцию dispatch для отправки действий
-  const dispatch = useDispatch();
-  // Получаем данные пользователя из хука useAuth
-  const { user } = useAuth();
+  // 3. Проверяем, десктоп ли это (ширина >= 1440px)
+  //    isDesktop = true на десктопе, false на мобильных/планшетах
+  const isDesktop = useMediaQuery({ minWidth: 1440 });
 
-  // Функция для выхода из системы
-  const handleLogout = () => {
-    dispatch(logOut());
-  };
+  // 4. Состояние для мобильного меню
+  //    isShowMobileMenu - открыто ли меню (true/false)
+  //    setIsShowMobileMenu - функция для изменения состояния
+  //    Начальное значение false - меню закрыто
+  const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
 
-  // JSX - ЧТО ПОКАЗЫВАЕМ
   return (
-    <header className="header">
-      {/* Левая часть шапки (пустая, потом добавим бургер и лого) */}
-      <div className="header-left">
-        {/* Здесь будет BurgerBtn и LogoHeader позже */}
+    <header className="header-main">
+      {/* 6. header-box - контейнер для левой части (бургер + лого + заголовок) */}
+      <div className="header-box">
+        {/* 7. Кнопка-бургер (только на мобильных и планшетах) */}
+        {/*    Передаем setIsShowMobileMenu, чтобы она могла открыть меню */}
+        <BurgerBtn setIsShowMobileMenu={setIsShowMobileMenu} />
+
+        {/* 8. Логотип (кликабельный - ведет на /dashboard) */}
+        <LogoHeader />
+
+        {/* 9. Заголовок с названием страницы и email пользователя */}
+        <HeaderTitle />
       </div>
 
-      {/* Центральная часть с заголовком (потом добавим HeaderTitle) */}
-      <div className="header-center">
-        <h1>Medicine Store</h1>
-        <p>Dashboard | {user?.email}</p>
-      </div>
+      {/* 10. Кнопка выхода - показываем только на десктопе */}
+      {isDesktop && <LogoutBtn />}
 
-      {/* Правая часть с кнопкой выхода */}
-      <div className="header-right">
-        <button className="logout-btn" onClick={handleLogout}>
-          <svg width={16} height={16}>
-            <use xlinkHref={`${sprite}#icon-logout`} />
-          </svg>
-        </button>
-      </div>
+      {/* 11. Мобильное меню - показываем если isShowMobileMenu = true */}
+      {isShowMobileMenu && (
+        <MobileMenu setIsShowMobileMenu={setIsShowMobileMenu} />
+      )}
     </header>
   );
 };

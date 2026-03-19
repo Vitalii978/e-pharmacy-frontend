@@ -2,7 +2,7 @@
    AddProduct.css - СТИЛИ ДЛЯ КНОПКИ ДОБАВЛЕНИЯ
    ============================================ */
 
-.add-product-btn {
+/* .add-product-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -38,6 +38,57 @@
 
   .add-product-btn svg {
     width: 44px;
+    height: 44px;
+  }
+} */
+
+/* ============================================
+   AddProduct.css - СТИЛИ ДЛЯ КНОПКИ ДОБАВЛЕНИЯ
+   ============================================ */
+
+/* 1. Основные стили кнопки */
+.add-product-btn {
+  display: flex; /* иконка и текст в ряд */
+  align-items: center; /* выравниваем по вертикали */
+  gap: 8px; /* расстояние между иконкой и текстом */
+  background: transparent; /* прозрачный фон */
+  border: none; /* убираем рамку */
+  outline: none; /* убираем обводку при фокусе */
+  color: var(--main-black); /* цвет текста (из переменных) */
+  font-size: 14px; /* размер шрифта */
+  font-weight: 500; /* жирность шрифта */
+  cursor: pointer; /* курсор-палец при наведении */
+  padding: 0; /* убираем внутренние отступы */
+  margin-bottom: 20px; /* отступ снизу (на мобильных) */
+}
+
+/* 2. Стили для иконки (кружок с крестиком) */
+.add-product-btn svg {
+  width: 42px; /* ширина иконки */
+  height: 42px; /* высота иконки */
+  padding: 11px;
+  background-color: var(--accent-color); /* зеленый фон */
+  border-radius: 50%; /* круглая форма */
+  stroke: var(--white-color); /* цвет крестика (белый) */
+  transform: rotate(45deg); /* поворачиваем на 45° (крестик → плюсик) */
+  transition: background-color var(--hover-effect); /* плавное изменение */
+}
+
+/* 3. Эффект при наведении на кнопку */
+.add-product-btn:hover svg {
+  background-color: var(--hover-accent); /* темнее зеленый */
+}
+
+/* ============================================
+   АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ (от 768px)
+   ============================================ */
+@media screen and (min-width: 768px) {
+  .add-product-btn {
+    margin-bottom: 0; /* убираем отступ снизу на планшетах */
+  }
+
+  .add-product-btn svg {
+    width: 44px; /* чуть больше иконка */
     height: 44px;
   }
 }

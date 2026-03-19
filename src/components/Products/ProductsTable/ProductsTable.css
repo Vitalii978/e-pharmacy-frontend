@@ -2,12 +2,14 @@
    ProductsTable.css - СТИЛИ ДЛЯ ТАБЛИЦЫ ПРОДУКТОВ
    ============================================ */
 
+/* Контейнер таблицы (для горизонтального скролла на мобильных) */
 .products-table-container {
   width: 100%;
   overflow-x: auto;
   margin-top: 24px;
 }
 
+/* Таблица */
 .products-table {
   width: 100%;
   min-width: 1000px;
@@ -18,26 +20,86 @@
   overflow: hidden;
 }
 
+/* Заголовок таблицы (caption) */
 .table-caption {
   text-align: left;
-  padding: 14px;
+  padding: 14px 20px;
   background-color: var(--bg-color);
   font-size: 16px;
   font-weight: 600;
   color: var(--main-black);
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
 }
 
+/* Заголовки колонок */
 .table-header {
   text-align: left;
-  padding: 14px;
-  background-color: var(--bg-color);
+  padding: 14px 20px;
+  background-color: var(--white-color);
   font-size: 14px;
   font-weight: 500;
   color: var(--placeholder-color);
   border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }
 
+.table-header:last-child {
+  border-right: none;
+}
+
+/* Ячейки таблицы */
+.products-table td {
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--main-black);
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  background-color: var(--white-color);
+}
+
+.products-table td:last-child {
+  border-right: none;
+}
+
+/* Последняя строка - без нижней границы */
+.products-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Убираем фон при наведении */
+.products-table tr:hover td {
+  background-color: var(--white-color);
+}
+
+/* Специфичные стили для колонок (через классы на td) */
+.products-table td.name-cell {
+  min-width: 160px;
+}
+
+.products-table td.category-cell {
+  min-width: 120px;
+}
+
+.products-table td.stock-cell {
+  min-width: 80px;
+}
+
+.products-table td.suppliers-cell {
+  min-width: 150px;
+}
+
+.products-table td.price-cell {
+  min-width: 100px;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.products-table td.actions-cell {
+  min-width: 100px;
+}
+
+/* Сообщение "нет данных" */
 .no-data {
   text-align: center;
   padding: 40px;
@@ -69,10 +131,25 @@
   background-color: var(--accent-color);
 }
 
+/* Адаптация для планшетов */
 @media screen and (min-width: 768px) {
   .table-caption,
   .table-header {
-    padding: 20px;
-    font-size: 18px;
+    padding: 20px 24px;
+    /* font-size: 18px; */
+  }
+
+  .products-table td {
+    padding: 20px 24px;
+    font-size: 16px;
+  }
+
+  .pagination {
+    gap: 12px;
+  }
+
+  .page-btn {
+    width: 14px;
+    height: 14px;
   }
 }

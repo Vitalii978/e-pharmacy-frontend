@@ -1,3 +1,7 @@
+/* ============================================
+   MobileModal.css - СТИЛИ ДЛЯ МОБИЛЬНОГО МЕНЮ
+   ============================================ */
+
 .mobile-backdrop {
   position: fixed;
   background: var(--bg-backdrop);
@@ -8,7 +12,7 @@
   z-index: 101;
 }
 
-.mobile-modal-container {
+.mobile-container {
   background-color: var(--bg-main);
   max-width: 78px;
   width: 100%;
@@ -20,13 +24,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-}
-
-@media screen and (min-width: 768px) {
-  .mobile-modal-container {
-    max-width: 84px;
-  }
 }
 
 .mobile-close-btn {
@@ -45,9 +42,11 @@
 }
 
 .mobile-close-btn svg {
-  min-width: 32px;
-  width: 32px;
-  min-height: 32px;
-  height: 32px;
   stroke: var(--main-black);
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-container {
+    max-width: 84px;
+  }
 }

@@ -30,3 +30,33 @@
 // };
 
 // export default LogoHeader; // Экспорт компонента
+
+import { Link } from 'react-router-dom';
+import logo from '../../../assets/images/logo/logo.webp';
+import logo1x from '../../../assets/images/logo/logo-1x.webp';
+import logo2x from '../../../assets/images/logo/logo-2x.webp';
+import './LogoHeader.css';
+
+const LogoHeader = () => {
+  return (
+    //    Link - вместо обычного <a>, чтобы не перезагружать страницу
+    //    to="/dashboard" - при клике переходим на главную страницу админки
+    <Link to="/dashboard" className="logo-header-link">
+      {/* 4. picture - тег для адаптивных изображений */}
+      {/*    Позволяет подставлять разные картинки для разных экранов */}
+      <picture>
+        {/* 5. source - указывает, какие картинки для каких случаев */}
+        {/*    srcSet - набор картинок с указанием плотности пикселей */}
+        {/*    1x - обычные экраны, 2x - Retina, 3x - сверхчеткие */}
+        <source srcSet={`${logo} 1x, ${logo1x} 2x, ${logo2x} 3x`} />
+
+        {/* 6. img - запасной вариант, если picture не работает */}
+        {/*    src - обычная картинка */}
+        {/*    alt - описание для скринридеров и на случай если картинка не загрузилась */}
+        <img src={logo} alt="Logo" />
+      </picture>
+    </Link>
+  );
+};
+
+export default LogoHeader; // ← ЭТО ОБЯЗАТЕЛЬНО
