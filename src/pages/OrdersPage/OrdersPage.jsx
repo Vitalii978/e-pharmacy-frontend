@@ -58,18 +58,17 @@ const OrdersPage = () => {
   return (
     // 13. PageContainer - обертка с отступами
     <PageContainer>
-      {/* 14. Заголовок страницы - h1 с классом для стилей */}
-      <h1 className="page-title">All orders</h1>
-
       {/* 15. Компонент фильтрации */}
       {/*    placeholder - текст внутри поля поиска */}
       {/*    onFilter - функция, которая будет вызвана при поиске (пока не реализовано) */}
       {/*    onReset - функция, которая будет вызвана при сбросе (пока не реализовано) */}
-      <FilterBar
-        placeholder="User Name"
-        onFilter={handleFilter}
-        onReset={handleReset}
-      />
+      <div className="orders-header">
+        <FilterBar
+          placeholder="User Name"
+          onFilter={handleFilter}
+          onReset={handleReset}
+        />
+      </div>
 
       {/* 16. Компонент таблицы заказов (пока заглушка) */}
       <OrdersTable />

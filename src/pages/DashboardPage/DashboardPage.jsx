@@ -27,7 +27,7 @@ const DashboardPage = () => {
   // 6. JSX
   return (
     <div className="dashboard-page">
-      <h1>Dashboard</h1>
+      {/* <h1>Dashboard</h1> */}
 
       {/* 7. Карточки статистики */}
       <Statistic />

@@ -38,12 +38,12 @@ const Statistic = () => {
           <svg width={18} height={18}>
             <use xlinkHref={`${sprite}#icon-currency`}></use>
           </svg>
+          {/* Название карточки */}
+          <p className="stat-label">All products</p>
         </div>
 
         {/* Блок с текстом */}
         <div className="stat-info">
-          {/* Название карточки */}
-          <p className="stat-label">All products</p>
           {/* Число (если данных нет, показываем 0) */}
           <p className="stat-number">{allProducts || 0}</p>
         </div>
@@ -56,9 +56,9 @@ const Statistic = () => {
             {/* Иконка пользователей */}
             <use xlinkHref={`${sprite}#icon-ci_users`}></use>
           </svg>
+          <p className="stat-label">All suppliers</p>
         </div>
         <div className="stat-info">
-          <p className="stat-label">All suppliers</p>
           <p className="stat-number">{allSuppliers || 0}</p>
         </div>
       </div>
@@ -69,9 +69,9 @@ const Statistic = () => {
           <svg width={18} height={18}>
             <use xlinkHref={`${sprite}#icon-ci_users`}></use>
           </svg>
+          <p className="stat-label">All customers</p>
         </div>
         <div className="stat-info">
-          <p className="stat-label">All customers</p>
           <p className="stat-number">{allCustomers || 0}</p>
         </div>
       </div>

@@ -3,7 +3,7 @@
    ============================================ */
 
 .filter-bar {
-  margin: 24px 0;
+  margin: 40px 0 20px 0;
 }
 
 .filter-form {
@@ -16,7 +16,7 @@
 .filter-input-wrapper {
   position: relative;
   flex: 1;
-  min-width: 250px;
+  width: 100%;
 }
 
 .filter-input {
@@ -92,12 +92,40 @@
   stroke: var(--white-color);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 374px) {
   .filter-form {
     gap: 14px;
   }
 
   .filter-input-wrapper {
-    min-width: 300px;
+    min-width: 215px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filter-bar {
+    margin: 48px 0 20px 0;
+  }
+
+  .filter-form {
+    gap: 14px;
+  }
+
+  .filter-input-wrapper {
+    max-width: 224px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .filter-bar {
+    margin: 75px 0 20px 0;
+  }
+
+  .filter-form {
+    gap: 14px;
+  }
+
+  .filter-input-wrapper {
+    max-width: 224px;
   }
 }

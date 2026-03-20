@@ -2,12 +2,10 @@
    IncomeExpenses.css - СТИЛИ ДЛЯ ТАБЛИЦЫ ДОХОДОВ/РАСХОДОВ
    ============================================ */
 
-/* 1. Секция Income/Expenses */
 .income-expenses {
   width: 100%;
 }
 
-/* 2. Заголовок секции */
 .section-title {
   font-size: 18px;
   font-weight: 600;
@@ -15,7 +13,6 @@
   margin-bottom: 16px;
 }
 
-/* 3. Таблица */
 .income-table {
   width: 100%;
   border-collapse: collapse;
@@ -25,7 +22,6 @@
   overflow: hidden;
 }
 
-/* 4. Заголовок таблицы */
 .table-header {
   text-align: left;
   padding: 14px;
@@ -36,24 +32,20 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-/* 5. Ячейки таблицы */
 .table-cell {
   padding: 14px;
   border-bottom: 1px solid var(--border-color);
   font-size: 14px;
 }
 
-/* 6. Последняя строка - без границы */
 .income-row:last-child .table-cell {
   border-bottom: none;
 }
 
-/* 7. Ячейка с типом */
 .type-cell {
   width: 30%;
 }
 
-/* 8. Бейдж типа (Income/Expense) */
 .type-badge {
   display: inline-block;
   padding: 4px 12px;
@@ -64,43 +56,36 @@
   min-width: 80px;
 }
 
-/* 9. Бейдж для Income (зеленый) */
 .type-badge.income {
   background-color: rgba(89, 177, 122, 0.1);
   color: var(--accent-color);
 }
 
-/* 10. Бейдж для Expense (красный) */
 .type-badge.expense {
   background-color: rgba(232, 80, 80, 0.1);
   color: var(--expense-color);
 }
 
-/* 11. Ячейка с названием */
 .income-table .name-cell {
   width: 40%;
   font-weight: 500;
   color: var(--main-black);
 }
 
-/* 12. Ячейка с суммой */
 .amount-cell {
   width: 30%;
   font-weight: 600;
   text-align: right;
 }
 
-/* 13. Сумма для Income (зеленая) */
 .amount-cell.income {
   color: var(--accent-color);
 }
 
-/* 14. Сумма для Expense (красная) */
 .amount-cell.expense {
   color: var(--expense-color);
 }
 
-/* 15. Планшеты */
 @media screen and (min-width: 768px) {
   .table-header {
     padding: 20px;

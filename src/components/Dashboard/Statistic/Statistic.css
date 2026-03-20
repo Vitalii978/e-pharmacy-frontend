@@ -2,82 +2,77 @@
    Statistic.css - СТИЛИ ДЛЯ КАРТОЧЕК СТАТИСТИКИ
    ============================================ */
 
-/* 1. Контейнер для всех карточек */
 .statistic-container {
-  display: flex; /* располагаем карточки в ряд */
-  flex-wrap: wrap; /* если не влезают - переносим на новую строку */
-  gap: 20px; /* расстояние между карточками */
-  margin-bottom: 40px; /* отступ снизу */
-}
-
-/* 2. Одна карточка */
-.stat-card {
-  width: 156px; /* ширина карточки */
-  height: 98px; /* высота карточки */
-  border-radius: 8px; /* скругленные углы */
-  border: 1px solid var(--border-color); /* рамка */
-  padding: 14px; /* отступы внутри карточки */
   display: flex;
-  flex-direction: column; /* располагаем иконку и число друг под другом */
-  justify-content: space-between; /* иконка сверху, число снизу */
-  background-color: var(--white-color); /* белый фон */
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
-/* 3. Блок с иконкой */
+.stat-card {
+  width: 157px;
+  height: 98px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white-color);
+}
+
 .stat-icon {
   display: flex;
   align-items: center;
-  gap: 8px; /* расстояние между иконкой и текстом (если будет) */
+  gap: 8px;
 }
 
-/* 4. Сама иконка */
 .stat-icon svg {
-  fill: none; /* без заливки */
-  stroke: var(--main-black); /* черный цвет обводки */
+  fill: none;
+  stroke: var(--main-black);
 }
 
-/* 5. Текст-подпись (All products, All suppliers и т.д.) */
 .stat-label {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.17;
-  color: var(--placeholder-color); /* серый цвет */
+  color: rgba(29, 30, 33, 0.4);
 }
 
-/* 6. Число (150, 45, 12 и т.д.) */
 .stat-number {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
-  color: var(--main-black); /* черный цвет */
+  color: var(--main-black);
 }
 
-/* 7. Стили для планшетов (ширина от 768px) */
 @media screen and (min-width: 768px) {
+  .statistic-container {
+    margin-bottom: 40px;
+  }
+
   .stat-card {
-    width: 221px; /* шире */
-    height: 108px; /* выше */
-    padding: 14px 18px; /* больше отступы */
+    width: 221px;
+    height: 108px;
+    padding: 14px 18px;
   }
 
   .stat-icon svg {
-    width: 20px; /* иконка больше */
+    width: 20px;
     height: 20px;
   }
 
   .stat-label {
-    line-height: 1.5; /* больше межстрочный интервал */
+    line-height: 1.5;
   }
 
   .stat-number {
-    font-size: 24px; /* число больше */
-    line-height: 1.33;
+    font-size: 24px;
   }
 }
 
-/* 8. Стили для десктопа (ширина от 1440px) */
 @media screen and (min-width: 1440px) {
   .stat-card {
-    width: 240px; /* еще шире */
+    width: 240px;
   }
 }

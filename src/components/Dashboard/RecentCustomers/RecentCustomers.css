@@ -2,106 +2,132 @@
    RecentCustomers.css - СТИЛИ ДЛЯ СПИСКА КЛИЕНТОВ
    ============================================ */
 
-/* 1. Секция Recent Customers */
 .recent-customers {
-  margin-bottom: 40px;
   width: 100%;
 }
 
-/* 2. Заголовок секции */
-.section-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--main-black);
-  margin-bottom: 16px;
-}
-
-/* 3. Таблица */
-.customers-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--white-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* 4. Заголовок таблицы */
-.table-header {
+.table-caption {
+  border-radius: 8px 8px 0 0;
   text-align: left;
   padding: 14px;
-  background-color: var(--bg-color);
-  font-size: 14px;
+  background-color: #e7f1ed; /* светло-зеленый */
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-black);
+  /* border-bottom: 1px solid var(--border-color); */
+}
+
+.customers-table {
+  width: 100%;
+  /* border-collapse: collapse; */
+  background-color: var(--white-color);
+
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.table-header-rec {
+  text-align: left;
+  padding: 14px;
+  background-color: var(--white-colo);
+  font-size: 12px;
   font-weight: 500;
   color: var(--placeholder-color);
   border-bottom: 1px solid var(--border-color);
+  /* Вертикальные линии */
+  border-right: 1px solid var(--border-color);
 }
 
-/* 5. Ячейки таблицы */
-.table-cell {
-  padding: 14px;
+.table-cel {
+  padding: 14px 8px;
   border-bottom: 1px solid var(--border-color);
-  font-size: 14px;
+  font-size: 12px;
   color: var(--main-black);
 }
 
-/* 6. Последняя строка - без границы */
-.table-row:last-child .table-cell {
+.table-row:last-child .table-cel {
   border-bottom: none;
 }
 
-/* 7. Ячейка с именем */
-.name-cell {
-  width: 40%;
+.table-header-rec:last-child {
+  border-right: none;
 }
 
-/* 8. Контейнер для информации о клиенте */
+.name-cell {
+  width: 40%;
+  border-right: 1px solid var(--border-color);
+}
+
 .customer-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-/* 9. Аватар */
 .customer-avatar {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* 10. Имя клиента */
 .customer-name {
   font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #1d1e21;
 }
 
-/* 11. Ячейка с email */
 .email-cell {
-  width: 40%;
-  color: var(--placeholder-color);
+  max-width: 158px;
+  color: #1d1e21;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-right: 1px solid var(--border-color);
 }
 
-/* 12. Ячейка с потраченной суммой */
 .spent-cell {
   width: 20%;
   font-weight: 600;
   color: var(--accent-color);
 }
 
-/* 13. Планшеты */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 374px) {
   .table-header {
     padding: 20px;
     font-size: 16px;
   }
+}
 
-  .table-cell {
+@media screen and (min-width: 768px) {
+  .recent-customers {
+    /* margin-bottom: 20px; */
+  }
+
+  .table-caption {
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .table-header-rec {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .table-cel {
     padding: 20px;
     font-size: 16px;
   }
 
   .customer-avatar {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .customer-name {
+    font-size: 16px;
   }
 }
