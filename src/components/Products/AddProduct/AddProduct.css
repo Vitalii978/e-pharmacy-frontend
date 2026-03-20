@@ -2,50 +2,6 @@
    AddProduct.css - СТИЛИ ДЛЯ КНОПКИ ДОБАВЛЕНИЯ
    ============================================ */
 
-/* .add-product-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--main-black);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.add-product-btn svg {
-  width: 42px;
-  height: 42px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  stroke: var(--white-color);
-  transform: rotate(45deg);
-  transition: background-color var(--hover-effect);
-}
-
-.add-product-btn:hover svg {
-  background-color: var(--hover-accent);
-}
-
-@media screen and (min-width: 768px) {
-  .add-product-btn {
-    margin-bottom: 0;
-  }
-
-  .add-product-btn svg {
-    width: 44px;
-    height: 44px;
-  }
-} */
-
-/* ============================================
-   AddProduct.css - СТИЛИ ДЛЯ КНОПКИ ДОБАВЛЕНИЯ
-   ============================================ */
-
 /* 1. Основные стили кнопки */
 .add-product-btn {
   display: flex; /* иконка и текст в ряд */
@@ -59,7 +15,7 @@
   font-weight: 500; /* жирность шрифта */
   cursor: pointer; /* курсор-палец при наведении */
   padding: 0; /* убираем внутренние отступы */
-  margin-bottom: 20px; /* отступ снизу (на мобильных) */
+  /* margin-top: 40px; */
 }
 
 /* 2. Стили для иконки (кружок с крестиком) */
@@ -84,11 +40,17 @@
    ============================================ */
 @media screen and (min-width: 768px) {
   .add-product-btn {
-    margin-bottom: 0; /* убираем отступ снизу на планшетах */
+    margin-top: 52px; /* убираем отступ снизу на планшетах */
   }
 
   .add-product-btn svg {
     width: 44px; /* чуть больше иконка */
     height: 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .add-product-btn {
+    margin-top: 77px; /* убираем отступ снизу на планшетах */
   }
 }

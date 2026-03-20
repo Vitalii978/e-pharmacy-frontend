@@ -1,35 +1,4 @@
 /* ============================================
-   PageContainer.css - СТИЛИ ДЛЯ КОНТЕЙНЕРА
-   ============================================ */
-
-/* 
-.page-container {
-  padding: 0; 
-  max-width: 375px; 
-  width: 100%; 
-  margin: 0 auto;
-  overflow-x: auto; 
-}
-
-
-
-
-@media screen and (min-width: 768px) {
-  .page-container {
-    max-width: 768px; 
-    padding: 0px; 
-  }
-}
-
-
-@media screen and (min-width: 1440px) {
-  .page-container {
-    max-width: 1360px; 
-    padding: 0px; 
-  }
-} */
-
-/* ============================================
    PageContainer.css - ОБЩИЙ КОНТЕЙНЕР ДЛЯ СТРАНИЦ
    ============================================ */
 
@@ -58,7 +27,7 @@
 /* Десктоп (1440px и больше) */
 @media screen and (min-width: 1440px) {
   .page-container {
-    max-width: 1200px; /* фиксированная ширина для центрирования */
+    max-width: 1360px; /* фиксированная ширина для центрирования */
     padding: 0 40px;
   }
 }

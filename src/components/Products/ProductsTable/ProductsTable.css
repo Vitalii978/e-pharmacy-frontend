@@ -6,7 +6,7 @@
 .products-table-container {
   width: 100%;
   overflow-x: auto;
-  margin-top: 24px;
+  /* margin-top: 24px; */
 }
 
 /* Таблица */
@@ -36,7 +36,7 @@
   text-align: left;
   padding: 14px 20px;
   background-color: var(--white-color);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--placeholder-color);
   border-bottom: 1px solid var(--border-color);
@@ -133,10 +133,12 @@
 
 /* Адаптация для планшетов */
 @media screen and (min-width: 768px) {
-  .table-caption,
+  .table-caption {
+    font-size: 18px;
+  }
   .table-header {
     padding: 20px 24px;
-    /* font-size: 18px; */
+    font-size: 14px;
   }
 
   .products-table td {
