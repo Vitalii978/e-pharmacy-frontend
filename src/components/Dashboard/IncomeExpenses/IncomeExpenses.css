@@ -4,6 +4,19 @@
 
 .income-expenses {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.table-caption {
+  border-radius: 8px 8px 0 0;
+  text-align: left;
+  padding: 14px;
+  background-color: #e7f1ed; /* светло-зеленый */
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-black);
+  /* border-bottom: 1px solid var(--border-color); */
 }
 
 .section-title {
@@ -15,17 +28,18 @@
 
 .income-table {
   width: 100%;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   background-color: var(--white-color);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .table-header {
   text-align: left;
   padding: 14px;
-  background-color: var(--bg-color);
+  background-color: var(--white-colo);
   font-size: 14px;
   font-weight: 500;
   color: var(--placeholder-color);
@@ -33,7 +47,7 @@
 }
 
 .table-cell {
-  padding: 14px;
+  padding: 14px 8px;
   border-bottom: 1px solid var(--border-color);
   font-size: 14px;
 }
@@ -43,7 +57,12 @@
 }
 
 .type-cell {
-  width: 30%;
+  width: 20%;
+}
+
+.name-cel {
+  width: 40%;
+  /* border-right: 1px solid var(--border-color); */
 }
 
 .type-badge {
@@ -86,10 +105,18 @@
   color: var(--expense-color);
 }
 
+@media screen and (min-width: 374px) {
+}
+
 @media screen and (min-width: 768px) {
   .table-header {
     padding: 20px;
     font-size: 16px;
+  }
+
+  .table-caption {
+    padding: 20px;
+    font-size: 18px;
   }
 
   .table-cell {

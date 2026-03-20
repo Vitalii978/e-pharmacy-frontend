@@ -9,6 +9,12 @@
   padding: 100px 20px 80px 20px;
 }
 
+.dashboard-row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 /* Мобильные (до 767px) - вертикальное расположение */
 @media screen and (min-width: 374px) {
   .dashboard-page {
@@ -51,6 +57,7 @@
 
   .dashboard-row {
     display: flex;
+    flex-direction: row;
     gap: 20px;
     margin-top: 24px;
   }

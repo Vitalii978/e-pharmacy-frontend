@@ -1,22 +1,3 @@
-// // ============================================
-// // IncomeExpenses.jsx - КОМПОНЕНТ ДОХОДОВ/РАСХОДОВ
-// // ============================================
-
-// import React from 'react';
-// import './IncomeExpenses.css';
-
-// // ВАЖНО: ЕСТЬ ЛИ ЗДЕСЬ export default?
-// const IncomeExpenses = () => {
-//   return (
-//     <div>
-//       <h2>Income/Expenses</h2>
-//       <p>Компонент в разработке</p>
-//     </div>
-//   );
-// };
-
-// export default IncomeExpenses; // ← ЭТО ДОЛЖНО БЫТЬ В КОНЦЕ ФАЙЛА
-
 // ============================================
 // IncomeExpenses.jsx - КОМПОНЕНТ ДОХОДОВ И РАСХОДОВ
 // ============================================
@@ -39,10 +20,12 @@ const IncomeExpenses = () => {
   return (
     <section className="income-expenses">
       {/* 7. Заголовок секции */}
-      <h2 className="section-title">Income/Expenses</h2>
+      {/* <h2 className="section-title">Income/Expenses</h2> */}
 
       {/* 8. ТАБЛИЦА */}
       <table className="income-table">
+        {/* Заголовок теперь внутри таблицы как caption */}
+        <caption className="table-caption">Recent customers</caption>
         {/* 9. ЗАГОЛОВОК ТАБЛИЦЫ */}
         <thead>
           <tr>
@@ -67,7 +50,7 @@ const IncomeExpenses = () => {
                 </td>
 
                 {/* 14. ЯЧЕЙКА С НАЗВАНИЕМ */}
-                <td className="table-cell name-cell">{item.name}</td>
+                <td className="table-cell name-cel">{item.name}</td>
 
                 {/* 15. ЯЧЕЙКА С СУММОЙ */}
                 <td className={`table-cell amount-cell ${typeClass}`}>
