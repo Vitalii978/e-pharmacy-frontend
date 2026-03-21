@@ -1,4 +1,4 @@
-@import './assets/fonts/fonts.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-main: #f7f8fa;
@@ -60,20 +60,3 @@ img {
 address {
   font-style: normal;
 }
-
-/* .css-1u9des2-indicatorSeparator {
-  display: none;
-} */
-
-/* .css-tj5bde-Svg {
-  stroke: var(--placeholder-color) !important;
-  fill: var(--placeholder-color) !important;
-}
-
-.css-1jqq78o-placeholder {
-  color: var(--placeholder-color) !important;
-}
-
-.MuiOutlinedInput-notchedOutline {
-  border: none ! important ;
-} */

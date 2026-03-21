@@ -47,12 +47,12 @@ const OrdersTable = () => {
           <caption className="table-caption">All orders</caption>
           <thead>
             <tr>
-              <th className="table-header">User Info</th>
-              <th className="table-header">Address</th>
-              <th className="table-header">Products</th>
-              <th className="table-header">Order date</th>
-              <th className="table-header">Price</th>
-              <th className="table-header">Status</th>
+              <th className="order-header">User Info</th>
+              <th className="order-header">Address</th>
+              <th className="order-header">Products</th>
+              <th className="order-header">Order date</th>
+              <th className="order-header">Price</th>
+              <th className="order-header">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -78,12 +78,12 @@ const OrdersTable = () => {
         {/* ЗАГОЛОВКИ КОЛОНОК */}
         <thead>
           <tr>
-            <th className="table-header">User Info</th>
-            <th className="table-header">Address</th>
-            <th className="table-header">Products</th>
-            <th className="table-header">Order date</th>
-            <th className="table-header">Price</th>
-            <th className="table-header">Status</th>
+            <th className="order-header">User Info</th>
+            <th className="order-header">Address</th>
+            <th className="order-header">Products</th>
+            <th className="order-header">Order date</th>
+            <th className="order-header">Price</th>
+            <th className="order-header">Status</th>
           </tr>
         </thead>
 

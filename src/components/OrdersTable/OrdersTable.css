@@ -10,12 +10,19 @@
 
 .orders-table {
   width: 100%;
-  min-width: 1000px;
-  border-collapse: collapse;
+  min-width: 671px;
+  /* border-collapse: collapse; */
   background-color: var(--white-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-right: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0 0 8px 8px;
   overflow: hidden;
+}
+
+.orders-table:last-child {
+  border-bottom: none;
 }
 
 .table-caption {
@@ -25,17 +32,24 @@
   font-size: 16px;
   font-weight: 600;
   color: var(--main-black);
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
 }
 
-.table-header {
+.order-header {
   text-align: left;
   padding: 14px;
-  background-color: var(--bg-color);
-  font-size: 14px;
+  background-color: var(--white-color);
+  font-size: 12px;
   font-weight: 500;
+  line-height: 1.17;
   color: var(--placeholder-color);
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
+  border-right: 1px solid var(--border-color);
+}
+
+.order-header:last-child {
+  border-right: none;
+  /* border-bottom: none; */
 }
 
 .no-data {
@@ -70,10 +84,15 @@
 }
 
 @media screen and (min-width: 768px) {
-  .table-caption,
-  .table-header {
+  .table-caption {
     padding: 20px;
     font-size: 18px;
+  }
+
+  .order-header {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.29;
   }
 
   .pagination {
