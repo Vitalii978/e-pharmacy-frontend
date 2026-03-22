@@ -13,7 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 
 // 1.4 Уведомления
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 // 1.5 Схема валидации
 import { addProductSchema } from '../../../schemas/shemas';
@@ -96,8 +96,8 @@ const AddProductForm = ({ setShowModal }) => {
     // 6.2 Закрываем модалку
     setShowModal(false);
 
-    // 6.3 Показываем уведомление
-    toast.success('Product added successfully');
+    // // 6.3 Показываем уведомление
+    // toast.success('Product added successfully');
   };
 
   // ============================================

@@ -5,7 +5,7 @@
 // 1. Импорты
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { deleteProduct } from '../../../redux/products/operations';
 import sprite from '../../../assets/sprite.svg';
 import './Buttons.css';
@@ -20,7 +20,7 @@ const Buttons = ({ id, setIsEdit, setIsSubmitting }) => {
     setIsSubmitting(true); // показываем лоадер
     await dispatch(deleteProduct(id)); // отправляем запрос на удаление
     setIsSubmitting(false); // убираем лоадер
-    toast.success('Product deleted successfully'); // показываем уведомление
+    // toast.success('Product deleted successfully'); // показываем уведомление
   };
 
   // 4. Функция открытия формы редактирования

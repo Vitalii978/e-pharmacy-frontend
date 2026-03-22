@@ -13,8 +13,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 //    useDispatch для отправки действий в Redux
 import { useDispatch } from 'react-redux';
 
-//    toast для уведомлений
-import { toast } from 'react-toastify';
+// //    toast для уведомлений
+// import { toast } from 'react-toastify';
 
 //    Схема валидации из файла schemas.js
 import { editProductSchema } from '../../../schemas/shemas';
@@ -117,8 +117,8 @@ const EditProductForm = ({ setIsEdit, product, setIsSubmitting }) => {
     // 6.5 Выключаем режим отправки
     setIsSubmitting(false);
 
-    // 6.6 Показываем уведомление об успехе
-    toast.success('Product edited successfully');
+    // // 6.6 Показываем уведомление об успехе
+    // toast.success('Product edited successfully');
   };
 
   // ============================================

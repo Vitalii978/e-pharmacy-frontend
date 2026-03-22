@@ -35,6 +35,7 @@ export const logIn = createAsyncThunk(
 
       // Показываем приветствие
       toast.success(`Welcome ${res.data.name}`);
+      console.log('Toast success вызван'); // ← добавь для проверки
 
       // Возвращаем данные (попадут в action.payload у fulfilled)
       return res.data; // { name, email, token }
@@ -53,6 +54,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.get('api/user/logout');
     // Убираем токен из заголовков
     clearAuthHeader();
+
+    // ← ДОБАВЛЯЕМ ТОСТ ДЛЯ ВЫХОДА
+    toast.info('You have been logged out'); // ← ЭТО НУЖНО ДОБАВИТЬ
+    console.log('Logout success'); // для проверки
   } catch (error) {
     toast.error('Error, server not answer');
     return thunkAPI.rejectWithValue(error.message);

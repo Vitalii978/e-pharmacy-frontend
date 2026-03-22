@@ -47,7 +47,7 @@ export const getProducts = createAsyncThunk(
       // 10. Делаем GET запрос на сервер
       //     /api/products - endpoint из бекенда
       const res = await axios.get('/api/products');
-
+      // toast.success('Product added successfully'); // ← уведомление об успехе
       // 11. Возвращаем данные - они попадут в action.payload
       return res.data;
     } catch (error) {
@@ -100,8 +100,12 @@ export const addProduct = createAsyncThunk(
       // POST запрос с данными нового продукта
       const res = await axios.post('/api/products', data);
 
+      console.log('Продукт добавлен:', res.data); // ← для проверки
+
+      toast.success('Product added successfully'); // ← уведомление об успехе
       return res.data;
     } catch (error) {
+      console.log('Ошибка:', error); // ← для проверки
       toast.error('ERROR, Unable to add product');
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -124,7 +128,7 @@ export const deleteProduct = createAsyncThunk(
 
       // DELETE запрос с id продукта
       await axios.delete(`/api/products/${id}`);
-
+      toast.success('Product deleted successfully'); // ← уведомление об успехе
       // Возвращаем id, чтобы удалить из хранилища
       return id;
     } catch (error) {
@@ -150,7 +154,7 @@ export const editProduct = createAsyncThunk(
 
       // PUT запрос с обновленными данными
       const res = await axios.put(`/api/products/${id}`, data);
-
+      toast.success('Product edited successfully'); // ← уведомление об успехе
       return res.data;
     } catch (error) {
       toast.error('ERROR, Unable to edit product');
