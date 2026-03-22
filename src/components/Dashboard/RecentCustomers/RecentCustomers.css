@@ -56,7 +56,7 @@
   border-right: none;
 }
 
-.name-cell {
+.name-celll {
   /* width: 40%; */
   min-width: 82px;
   max-width: 82px;
@@ -84,7 +84,7 @@
   color: #1d1e21;
 }
 
-.email-cell {
+.email-cel {
   /* max-width: 158px; */
   min-width: 127px;
   max-width: 127px;
@@ -104,6 +104,10 @@
 }
 
 @media screen and (min-width: 374px) {
+  .customers-table {
+    min-width: 335px;
+  }
+
   .table-header {
     padding: 20px;
     font-size: 16px;
@@ -113,14 +117,14 @@
     padding: 14px 8px;
   }
 
-  .name-cell {
+  .name-celll {
     /* min-width: 300px; */
     min-width: 73px;
     max-width: 73px;
     /* border-right: 1px solid var(--border-color); */
   }
 
-  .email-cell {
+  .email-cel {
     /* max-width: 280px; */
     min-width: 158px;
     max-width: 158px;
@@ -134,6 +138,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .customers-table {
+    min-width: 704px;
+  }
+
   .recent-customers {
     /* margin-bottom: 20px; */
   }
@@ -153,14 +161,14 @@
     font-size: 16px;
   }
 
-  .name-cell {
+  .name-celll {
     /* min-width: 300px; */
     min-width: 231px;
     max-width: 231px;
     /* border-right: 1px solid var(--border-color); */
   }
 
-  .email-cell {
+  .email-cel {
     /* max-width: 280px; */
     min-width: 310px;
     max-width: 310px;
@@ -179,5 +187,11 @@
 
   .customer-name {
     font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .customers-table {
+    min-width: 630px;
   }
 }

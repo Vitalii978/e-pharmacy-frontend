@@ -30,6 +30,7 @@
   transition: border-color var(--hover-effect);
 }
 
+.filter-input:hover,
 .filter-input:focus {
   border-color: var(--accent-color);
 }

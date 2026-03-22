@@ -14,7 +14,8 @@ import { authReducer } from './auth/authSlice';
 import { dashboardReducer } from './dashboard/dashboardSlice';
 import { ordersReducer } from './orders/ordersSlice';
 import { suppliersReducer } from './suppliers/suppliersSlice';
-import { productsReducer } from './products/productsSlice'; //
+import { productsReducer } from './products/productsSlice';
+import { customerReducer } from './customers/customerSlice';
 
 // Настройка сохранения токена в localStorage
 const authPersistConfig = {
@@ -33,6 +34,7 @@ export const store = configureStore({
     orders: ordersReducer,
     suppliers: suppliersReducer,
     products: productsReducer,
+    customers: customerReducer, // ← ДОБАВЛЯЕМ
   },
   // Настройка middleware (нужно для redux-persist)
   middleware: getDefaultMiddleware =>
