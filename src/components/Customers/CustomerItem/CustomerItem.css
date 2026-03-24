@@ -27,7 +27,7 @@
 /* Ячейка с пользователем */
 .user-cell {
   min-width: 128px;
-  max-width: 128px;
+  /* max-width: 128px; */
 }
 
 .user-info {

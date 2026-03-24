@@ -6,76 +6,91 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.supplier-row:last-child {
+/* .supplier-row:last-child {
   border-bottom: none;
-}
+} */
 
-.supplier-cell {
-  padding: 14px 0;
+.supplier-celll {
+  padding: 14px;
   font-size: 12px;
+  line-height: 1.17;
   font-weight: 500;
   color: var(--main-black);
   border-right: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
 }
 
-.supplier-cell:last-child {
+.supplier-celll:last-child {
   border-right: none;
 }
 
 /* Ячейка с именем */
-.name-cell {
-  min-width: 160px;
+.name-celll {
+  min-width: 128px;
 }
 
 /* Ячейка с адресом */
-.address-cell {
-  min-width: 200px;
+.address-celll {
+  min-width: 94px;
 }
 
 /* Ячейка с компанией */
-.company-cell {
-  min-width: 150px;
+.company-celll {
+  min-width: 83px;
 }
 
 /* Ячейка с датой */
-.date-cell {
-  min-width: 120px;
+.date-celll {
+  min-width: 129px;
 }
 
 /* Ячейка с суммой */
-.amount-cell {
+.amount-celll {
   min-width: 100px;
   font-weight: 600;
 }
 
 /* Ячейка со статусом */
-.status-cell {
+.status-celll {
   min-width: 100px;
+  padding: 14px;
 }
 
-/* Бейдж статуса */
+/* ============================================
+   СТАТУС - ОВАЛЬНЫЙ БЕЙДЖ
+   ============================================ */
+
+/* Бейдж статуса (овальная форма) */
 .status-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 60px;
-  font-size: 12px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 14px;
   font-weight: 500;
-  text-align: center;
-  min-width: 80px;
+  letter-spacing: -0.05em;
+  height: 25px;
+  border-radius: 60px;
+  min-width: 89px;
+  max-width: 89px;
+  margin: 0px auto;
 }
 
-.status-active {
+/* Активный статус - зеленый */
+.status-badge.active {
   background-color: rgba(89, 177, 122, 0.1);
   color: var(--accent-color);
 }
 
-.status-deactive {
+/* Неактивный статус - красный */
+.status-badge.deactive {
   background-color: rgba(232, 80, 80, 0.1);
   color: var(--expense-color);
 }
 
 /* Кнопка редактирования */
-.action-cell {
+.action-celll {
   min-width: 80px;
 }
 
@@ -96,8 +111,63 @@
 }
 
 @media screen and (min-width: 768px) {
-  .supplier-cell {
-    padding: 20px 0;
+  .supplier-celll {
+    padding: 20px;
     font-size: 16px;
+    line-height: 1.125;
+    font-weight: 500;
+  }
+
+  /* Ячейка с именем */
+  .name-celll {
+    min-width: 195px;
+  }
+
+  /* Ячейка с адресом */
+  .address-celll {
+    min-width: 128px;
+  }
+
+  /* Ячейка с компанией */
+  .company-celll {
+    min-width: 108px;
+  }
+
+  /* Ячейка с датой */
+  .date-celll {
+    min-width: 200px;
+  }
+
+  /* Ячейка с суммой */
+  .amount-celll {
+    min-width: 120px;
+    font-weight: 600;
+  }
+
+  /* Ячейка со статусом */
+  .status-celll {
+    min-width: 130px;
+    padding: 14px;
+  }
+
+  /* ============================================
+   СТАТУС - ОВАЛЬНЫЙ БЕЙДЖ
+   ============================================ */
+
+  /* Бейдж статуса (овальная форма) */
+  .status-badge {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    height: 25px;
+    border-radius: 60px;
+    min-width: 89px;
+    max-width: 89px;
+    margin: 0px auto;
   }
 }

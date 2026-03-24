@@ -44,8 +44,11 @@ const SuppliersItem = ({ supplier }) => {
   // 6. ФУНКЦИЯ ДЛЯ ОПРЕДЕЛЕНИЯ CSS КЛАССА СТАТУСА
   //    Если статус "Active" - возвращаем "status-active"
   //    Если статус "Deactive" - возвращаем "status-deactive"
+  // Возвращает "status-badge active" или "status-badge deactive"
   const getStatusClass = status => {
-    return status === 'Active' ? 'status-active' : 'status-deactive';
+    return status === 'Active'
+      ? 'status-badge active'
+      : 'status-badge deactive';
   };
 
   // ============================================
@@ -65,32 +68,32 @@ const SuppliersItem = ({ supplier }) => {
       {/* tr - строка таблицы */}
       <tr className="supplier-row">
         {/* td - ячейка "Suppliers Info" (имя поставщика) */}
-        <td className="supplier-cell name-cell">
+        <td className="supplier-celll name-celll">
           {isLoading ? <span className="loader">...</span> : name}
         </td>
 
         {/* td - ячейка "Address" (адрес) */}
-        <td className="supplier-cell address-cell">
+        <td className="supplier-celll address-celll">
           {isLoading ? <span className="loader">...</span> : address}
         </td>
 
         {/* td - ячейка "Company" (название компании) */}
-        <td className="supplier-cell company-cell">
+        <td className="supplier-celll company-celll">
           {isLoading ? <span className="loader">...</span> : suppliers}
         </td>
 
         {/* td - ячейка "Delivery Date" (дата доставки) */}
-        <td className="supplier-cell date-cell">
+        <td className="supplier-celll date-celll">
           {isLoading ? <span className="loader">...</span> : date}
         </td>
 
         {/* td - ячейка "Amount" (сумма) */}
-        <td className="supplier-cell amount-cell">
+        <td className="supplier-celll amount-celll">
           {isLoading ? <span className="loader">...</span> : amountValue}
         </td>
 
         {/* td - ячейка "Status" (статус) */}
-        <td className="supplier-cell status-cell">
+        <td className="supplier-celll status-celll ">
           {isLoading ? (
             <span className="loader">...</span>
           ) : (
@@ -99,7 +102,7 @@ const SuppliersItem = ({ supplier }) => {
         </td>
 
         {/* td - ячейка "Action" (кнопка редактирования) */}
-        <td className="supplier-cell action-cell">
+        <td className="supplier-celll action-celll">
           <EditBtn setOpenEditModal={setOpenEditModal} />
         </td>
       </tr>
