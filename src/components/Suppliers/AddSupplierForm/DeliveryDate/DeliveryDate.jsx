@@ -1,89 +1,140 @@
-// ============================================
-// DeliveryDate.jsx - КАЛЕНДАРЬ ДЛЯ ВЫБОРА ДАТЫ
-// ============================================
-
-// 1. ИМПОРТЫ
-//    React - нужен для создания компонента
-import React from 'react';
-
-//    dayjs - библиотека для работы с датами
-//    Откуда: установили через npm install dayjs
-//    Зачем: чтобы форматировать даты (October 15, 2025)
-import dayjs from 'dayjs';
-
-//    DatePicker - компонент календаря из MUI (Material-UI)
-//    Откуда: из библиотеки @mui/x-date-pickers
-//    Зачем: чтобы пользователь мог выбрать дату из календаря
-import { DatePicker } from '@mui/x-date-pickers';
-
-//    IconCalendar - наша иконка календаря (из спрайта)
+import React, { useState } from 'react';
 import IconCalendar from './IconCalendar/IconCalendar';
-
-//    Импортируем стили
 import './DeliveryDate.css';
 
-// ============================================
-// КОМПОНЕНТ DeliveryDate
-// ============================================
-// Принимает:
-//   setDateValue - функция для установки выбранной даты (приходит из AddSupplierForm)
-//   dateValue - текущее значение даты (приходит из AddSupplierForm)
 const DeliveryDate = ({ setDateValue, dateValue }) => {
-  // 2. ФУНКЦИЯ handleDatePicker - вызывается, когда пользователь выбирает дату
-  //    newValue - выбранная дата в формате dayjs
-  const handleDatePicker = newValue => {
-    if (newValue) {
-      // Форматируем дату в строку "October 15, 2025"
-      // .format("MMMM D, YYYY") - это метод dayjs
-      // MMMM - полное название месяца (October)
-      // D - день месяца без ведущего нуля (15)
-      // YYYY - год (2025)
-      const formattedDate = newValue.format('MMMM D, YYYY');
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(dateValue || '');
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [month, setMonth] = useState(new Date().getMonth());
 
-      // Передаем отформатированную дату в родительский компонент
-      setDateValue(formattedDate);
-    } else {
-      // Если пользователь очистил дату - передаем null
-      setDateValue(null);
-    }
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const getDaysInMonth = (year, month) => {
+    return new Date(year, month + 1, 0).getDate();
   };
 
-  // ============================================
-  // JSX - ЧТО УВИДИТ ПОЛЬЗОВАТЕЛЬ
-  // ============================================
+  const getFirstDayOfMonth = (year, month) => {
+    return new Date(year, month, 1).getDay();
+  };
+
+  const handleDateSelect = day => {
+    const formattedDate = `${months[month]} ${day}, ${year}`;
+    setSelectedDate(formattedDate);
+    setDateValue(formattedDate);
+    setIsOpen(false);
+  };
+
+  const renderCalendar = () => {
+    const daysInMonth = getDaysInMonth(year, month);
+    const firstDay = getFirstDayOfMonth(year, month);
+    const days = [];
+
+    for (let i = 0; i < firstDay; i++) {
+      days.push(<div key={`empty-${i}`} className="calendar-empty" />);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isSelected = selectedDate === `${months[month]} ${d}, ${year}`;
+      days.push(
+        <div
+          key={d}
+          className={`calendar-day ${isSelected ? 'selected' : ''}`}
+          onClick={() => handleDateSelect(d)}
+        >
+          {d}
+        </div>
+      );
+    }
+
+    return days;
+  };
+
   return (
     <div className="delivery-date-wrapper">
-      <DatePicker
-        // label - текст-подсказка, который видно когда поле пустое
-        label="Delivery Date"
-        // value - текущее значение даты
-        // dayjs(dateValue) - преобразуем строку в формат dayjs, если дата есть
-        // null - если даты нет
-        value={dateValue ? dayjs(dateValue) : null}
-        // format="LL" - формат отображения даты в поле
-        // LL - стандартный формат: October 15, 2025
-        format="LL"
-        // onChange - вызывается при выборе даты
-        onChange={handleDatePicker}
-        // slotProps - настройка внешнего вида
-        slotProps={{
-          // textField - настройки поля ввода
-          textField: {
-            size: 'small', // маленький размер
-            className: 'date-picker-field', // класс для CSS
-          },
-          // popper - настройки выпадающего окна календаря
-          popper: {
-            className: 'date-picker-popper', // класс для CSS
-          },
-        }}
-        // views - что можно выбирать
-        views={['day', 'month', 'year']} // день, месяц, год
-        // slots - кастомные компоненты
-        slots={{
-          openPickerIcon: IconCalendar, // вместо стандартной иконки используем нашу
-        }}
-      />
+      <div className="date-input-wrapper">
+        <input
+          type="text"
+          placeholder="Delivery Date"
+          value={selectedDate}
+          readOnly
+          className="date-input"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+
+        {/* ТОЛЬКО ИКОНКА КАЛЕНДАРЯ - БЕЗ КРЕСТИКА */}
+        <button
+          type="button"
+          className="calendar-icon-btn"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <IconCalendar />
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="calendar-dropdown">
+          <div className="calendar-header">
+            <button
+              type="button"
+              onClick={() => setYear(year - 1)}
+              className="calendar-nav"
+            >
+              «
+            </button>
+            <select
+              value={month}
+              onChange={e => setMonth(parseInt(e.target.value))}
+              className="calendar-month-select"
+            >
+              {months.map((m, idx) => (
+                <option key={idx} value={idx}>
+                  {m}
+                </option>
+              ))}
+            </select>
+            <select
+              value={year}
+              onChange={e => setYear(parseInt(e.target.value))}
+              className="calendar-year-select"
+            >
+              {Array.from({ length: 10 }, (_, i) => year - 5 + i).map(y => (
+                <option key={y} value={y}>
+                  {y}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={() => setYear(year + 1)}
+              className="calendar-nav"
+            >
+              »
+            </button>
+          </div>
+          <div className="calendar-weekdays">
+            {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
+              <div key={day} className="weekday">
+                {day}
+              </div>
+            ))}
+          </div>
+          <div className="calendar-days">{renderCalendar()}</div>
+        </div>
+      )}
     </div>
   );
 };

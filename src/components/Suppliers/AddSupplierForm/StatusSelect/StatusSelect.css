@@ -1,196 +1,115 @@
-/* ============================================
-   StatusSelect.css - СТИЛИ ДЛЯ ВЫБОРА СТАТУСА
-   ============================================ */
-
-/* .status-select__control {
-  border: 1px solid var(--border-color);
-  width: 100%;
-  height: 44px;
-  background: var(--white-color);
-  padding-left: 8px;
-  border-radius: 60px;
-  box-shadow: none;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--main-black);
-  cursor: pointer;
-}
-
-.status-select__control:hover {
-  border-color: var(--accent-color);
-}
-
-.status-select__control--is-focused {
-  border-color: var(--accent-color);
-  box-shadow: none;
-}
-
-
-.status-select__value-container {
-  padding: 0;
-}
-
-.status-select__single-value {
-  color: var(--main-black);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-
-.status-select__placeholder {
-  color: var(--placeholder-color);
-  font-size: 12px;
-  font-weight: 400;
-}
-
-
-.status-select__indicator {
-  color: var(--placeholder-color);
-}
-
-
-.status-select__menu {
-  background-color: var(--accent-color);
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-
-.status-select__option {
-  font-size: 14px;
-  font-weight: 500;
-  font-family: Inter;
-  line-height: 1.25;
-  background: transparent;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 8px 12px;
-}
-
-.status-select__option--is-focused {
-  background-color: transparent;
-  color: var(--white-color);
-}
-
-.status-select__option--is-selected {
-  background-color: transparent;
-  color: var(--white-color);
-}
-
-
-.status-select__clear-indicator {
-  color: var(--placeholder-color);
-  cursor: pointer;
-}
-
-.status-select__clear-indicator:hover {
-  color: var(--accent-color);
-}
-
-
-@media screen and (min-width: 768px) {
-  .status-select__control {
-    width: 224px;
-  }
-} */
-
-/* ============================================
-   DeliveryDate.css - СТИЛИ ДЛЯ КАЛЕНДАРЯ
-   ============================================ */
-
-/* Контейнер */
-.delivery-date-wrapper {
+.status-select-wrapper {
+  position: relative;
   width: 100%;
 }
 
-/* ============================================
-   ПОЛЕ ВВОДА ДАТЫ - ОВАЛЬНАЯ ФОРМА
-   ============================================ */
-
-/* Повышаем специфичность - используем двойной селектор */
-.delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root {
+.status-select-trigger {
   width: 100%;
   height: 44px;
   border-radius: 60px;
   border: 1px solid var(--border-color);
   background-color: var(--white-color);
-  transition: border-color var(--hover-effect);
-  padding-left: 8px;
-}
-
-.delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root:hover {
-  border-color: var(--accent-color);
-}
-
-.delivery-date-wrapper .MuiInputBase-root.Mui-focused {
-  border-color: var(--accent-color);
-  box-shadow: none;
-}
-
-.delivery-date-wrapper .MuiInputBase-input.MuiOutlinedInput-input {
-  padding: 13px 18px;
+  padding: 13px 70px 13px 18px;
   font-size: 12px;
-  font-family: Inter;
-  height: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color var(--hover-effect);
+  position: relative;
+}
+
+.status-select-trigger:hover {
+  border-color: var(--accent-color);
+}
+
+/* ВЫБРАННОЕ ЗНАЧЕНИЕ - ЧЕРНЫЙ ШРИФТ */
+.status-select-value {
+  color: var(--main-black);
+  font-size: 12px;
+}
+
+/* Если значение выбрано - тоже черный */
+.status-select-trigger.has-value .status-select-value {
   color: var(--main-black);
 }
 
-/* Убираем стандартную обводку MUI */
-.delivery-date-wrapper .MuiOutlinedInput-notchedOutline {
-  border: none;
-}
-
-/* Лейбл (текст-подсказка) */
-.delivery-date-wrapper .MuiFormLabel-root.MuiInputLabel-root {
-  font-size: 12px;
+/* Плейсхолдер (когда ничего не выбрано) - серый */
+.status-select-trigger:not(.has-value) .status-select-value {
   color: var(--placeholder-color);
-  top: 4px;
-  left: 8px;
-  background: transparent;
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
-.delivery-date-wrapper .MuiFormLabel-root[data-shrink='true'] {
-  display: none;
+/* КРЕСТИК ДЛЯ СБРОСА */
+.status-clear-btn {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--placeholder-color);
+  transition: color var(--hover-effect);
+  z-index: 2;
 }
 
-/* ============================================
-   ВЫПАДАЮЩЕЕ ОКНО КАЛЕНДАРЯ
-   ============================================ */
+.status-clear-btn:hover {
+  color: var(--expense-color);
+}
 
-.date-picker-popper .MuiPaper-root.MuiPaper-elevation {
-  border: 1px solid var(--accent-color);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+/* СТРЕЛКА ИЗ СПРАЙТА */
+.status-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: var(--placeholder-color);
+  fill: none;
+  width: 14px;
+  height: 14px;
+}
+
+/* ВЫПАДАЮЩИЙ СПИСОК - ВНИЗ */
+.status-select-dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: 15px;
   overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Дни в календаре */
-.date-picker-popper .MuiPickersDay-root {
-  border-radius: 30px;
+.status-option {
+  padding: 10px 18px;
   font-size: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all var(--hover-effect);
 }
 
-.date-picker-popper .MuiPickersDay-root:hover {
-  background-color: var(--accent-color);
+.status-option:hover {
+  background-color: rgba(255, 255, 255, 0.15);
   color: var(--white-color);
 }
 
-.date-picker-popper .MuiPickersDay-root.Mui-selected {
-  background-color: var(--accent-color);
+.status-option.selected {
+  background-color: rgba(255, 255, 255, 0.25);
   color: var(--white-color);
 }
 
-.date-picker-popper .MuiPickersDay-root.Mui-selected:hover {
-  background-color: var(--hover-accent);
-}
-
-/* ============================================
-   АДАПТАЦИЯ
-   ============================================ */
 @media screen and (min-width: 768px) {
-  .delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root {
+  .status-select-trigger {
+    width: 224px;
+  }
+  .status-select-dropdown {
     width: 224px;
   }
 }

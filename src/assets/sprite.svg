@@ -53,5 +53,8 @@
     <symbol id="icon-ci_users" viewBox="0 0 32 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M28 26.667c0-2.323-2.227-4.297-5.333-5.031M20 26.667c0-2.947-3.581-5.333-8-5.333s-8 2.387-8 5.333m16-9.334a5.332 5.332 0 1 0 0-10.666m-8 10.666a5.332 5.332 0 1 1 0-10.665 5.332 5.332 0 0 1 0 10.665z"/>
     </symbol>
+    <symbol id="icon-icon-chevron-down" viewBox="0 0 53 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="8" d="M4 4l21.333 21.333 21.333-21.333"></path>
+</symbol>
   </defs>
 </svg>

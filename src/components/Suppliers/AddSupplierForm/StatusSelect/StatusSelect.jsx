@@ -1,75 +1,83 @@
 // ============================================
-// StatusSelect.jsx - ВЫБОР СТАТУСА (Active/Deactive)
-// ============================================
+// StatusSelect.jsx - КОМПОНЕНТ СЕЛЕКТА СТАТУСА
+// =============================================
 
-// 1. ИМПОРТЫ
-//    React - нужен для создания компонента
-import React from 'react';
-
-//    Select - компонент выпадающего списка из библиотеки react-select
-//    Откуда: установили через npm install react-select
-//    Зачем: чтобы пользователь мог выбрать статус (Active/Deactive)
-//    Преимущества: красивый дизайн, есть крестик для сброса, можно искать
-import Select from 'react-select';
-
-//    Импортируем стили
+import React, { useState, useRef, useEffect } from 'react';
+import sprite from '../../../../assets/sprite.svg';
 import './StatusSelect.css';
 
-// ============================================
-// КОМПОНЕНТ StatusSelect
-// ============================================
-// Принимает:
-//   statusValue - текущее значение статуса (приходит из AddSupplierForm)
-//   setStatusValue - функция для изменения статуса (приходит из AddSupplierForm)
 const StatusSelect = ({ statusValue, setStatusValue }) => {
-  // 2. ВАРИАНТЫ ДЛЯ ВЫБОРА
-  //    Массив объектов, каждый объект имеет label (что видит пользователь)
-  //    и value (что сохраняется в данных)
-  const statuses = [
-    { label: 'Active', value: 'Active' }, // активный
-    { label: 'Deactive', value: 'Deactive' }, // неактивный
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const wrapperRef = useRef(null);
+  const options = ['Active', 'Deactive'];
 
-  // 3. ФУНКЦИЯ handleByStatus - вызывается, когда пользователь выбирает статус
-  //    selectedOption - выбранный объект { label, value }
-  const handleByStatus = selectedOption => {
-    // Если выбрали что-то - сохраняем value
-    // Если нажали крестик (selectedOption = null) - сохраняем null
-    setStatusValue(selectedOption?.value);
+  const handleSelect = value => {
+    setStatusValue(value);
+    setIsOpen(false);
   };
 
-  // 4. НАХОДИМ ВЫБРАННЫЙ СТАТУС ДЛЯ ОТОБРАЖЕНИЯ
-  //    Если statusValue есть - ищем в массиве statuses объект с таким же value
-  //    Если нет - selectValue = null (ничего не выбрано)
-  const selectValue =
-    statusValue === null
-      ? null
-      : statuses.find(option => option.value === statusValue);
+  const handleClear = e => {
+    e.stopPropagation();
+    setStatusValue(null);
+  };
 
-  // ============================================
-  // JSX - ВЫПАДАЮЩИЙ СПИСОК
-  // ============================================
+  // Закрываем список при клике ВНЕ компонента (любое место вне status-select-wrapper)
+  useEffect(() => {
+    const handleClickOutside = event => {
+      // Если кликнули не внутри wrapperRef - закрываем список
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    // Добавляем слушатель на весь документ
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // При размонтировании удаляем слушатель
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <Select
-      // value - текущее выбранное значение (отображается в поле)
-      value={selectValue}
-      // onChange - функция, вызываемая при выборе
-      onChange={handleByStatus}
-      // options - массив вариантов для выбора
-      options={statuses}
-      // placeholder - текст-подсказка, когда ничего не выбрано
-      placeholder="Status"
-      // maxMenuHeight - максимальная высота выпадающего меню
-      maxMenuHeight={178}
-      // isClearable - можно ли очистить (показывает крестик)
-      isClearable={true}
-      // className - класс для CSS
-      className="status-select"
-      // classNamePrefix - префикс для CSS классов
-      // Все классы будут начинаться с "status-select__"
-      // Например: status-select__control, status-select__menu
-      classNamePrefix="status-select"
-    />
+    <div className="status-select-wrapper" ref={wrapperRef}>
+      <div
+        className={`status-select-trigger ${statusValue ? 'has-value' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="status-select-value">{statusValue || 'Status'}</span>
+
+        {statusValue && (
+          <button
+            type="button"
+            className="status-clear-btn"
+            onClick={handleClear}
+          >
+            <svg width={32} height={32}>
+              <use xlinkHref={`${sprite}#icon-close`} />
+            </svg>
+          </button>
+        )}
+
+        <svg width={14} height={14} className="status-arrow">
+          <use xlinkHref={`${sprite}#icon-icon-chevron-down`} />
+        </svg>
+      </div>
+
+      {isOpen && (
+        <div className="status-select-dropdown">
+          {options.map(opt => (
+            <div
+              key={opt}
+              className={`status-option ${statusValue === opt ? 'selected' : ''}`}
+              onClick={() => handleSelect(opt)}
+            >
+              {opt}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

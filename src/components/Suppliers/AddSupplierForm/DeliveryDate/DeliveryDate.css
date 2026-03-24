@@ -1,63 +1,150 @@
-/* ============================================
-   DeliveryDate.css - СТИЛИ ДЛЯ КАЛЕНДАРЯ
-   ============================================ */
-
 /* Контейнер */
 .delivery-date-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Обертка поля ввода */
+.date-input-wrapper {
+  position: relative;
   width: 100%;
 }
 
 /* Поле ввода даты */
-.date-picker-field .MuiInputBase-root {
+.date-input {
   width: 100%;
-  height: 40px;
-  font-size: 12px;
-  border-radius: 60px; !important;
+  height: 44px;
+  border-radius: 60px;
   border: 1px solid var(--border-color);
+  outline: none;
+  padding: 13px 40px 13px 18px;
+  font-size: 12px;
+  font-family: Inter;
   background-color: var(--white-color);
+  cursor: pointer;
   transition: border-color var(--hover-effect);
 }
 
-.date-picker-field .MuiInputBase-root:hover {
+.date-input:hover,
+.date-input:focus {
   border-color: var(--accent-color);
 }
 
-.date-picker-field .MuiInputBase-root.Mui-focused {
-  border-color: var(--accent-color);
-}
-
-/* Поле внутри */
-.date-picker-field .MuiInputBase-input {
-  padding: 10px 14px;
-  font-size: 12px;
-  font-family: Inter;
-  /* height: auto; */
-}
-
-/* Лейбл (текст-подсказка) */
-.date-picker-field .MuiFormLabel-root {
-  font-size: 12px;
+.date-input::placeholder {
   color: var(--placeholder-color);
-  top: 4px;
-  left: 8px;
-  background: transparent;
 }
 
-/* Скрываем лейбл когда есть значение */
-.date-picker-field .MuiFormLabel-root[data-shrink='true'] {
-  display: none;
+/* ИКОНКА КАЛЕНДАРЯ (только она, без крестика) */
+.calendar-icon-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Выпадающее окно календаря */
-.date-picker-popper .MuiPaper-root {
-  border: 1px solid var(--accent-color);
+/* Выпадающий календарь */
+.calendar-dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 280px;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  padding: 12px;
 }
 
-/* Для планшетов */
+/* Заголовок календаря */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-nav {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  color: var(--main-black);
+  transition: color var(--hover-effect);
+}
+
+.calendar-nav:hover {
+  color: var(--accent-color);
+}
+
+.calendar-month-select,
+.calendar-year-select {
+  padding: 4px 8px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Дни недели */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--placeholder-color);
+  padding: 4px;
+}
+
+/* Сетка дней */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all var(--hover-effect);
+}
+
+.calendar-day:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.calendar-day.selected {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.calendar-empty {
+  padding: 6px;
+}
+
 @media screen and (min-width: 768px) {
-  .date-picker-field .MuiInputBase-root {
+  .date-input {
     width: 224px;
   }
 }

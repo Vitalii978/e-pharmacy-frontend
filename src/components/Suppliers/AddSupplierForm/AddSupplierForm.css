@@ -1,3 +1,8 @@
+/* ============================================
+   AddSupplierForm.css - СТИЛИ ДЛЯ ФОРМЫ ДОБАВЛЕНИЯ
+   ============================================ */
+
+/* Заголовок формы */
 .form-title {
   font-size: 20px;
   font-weight: 600;
@@ -7,6 +12,7 @@
   margin-bottom: 20px;
 }
 
+/* Форма */
 .add-supplier-form {
   width: 100%;
   display: flex;
@@ -15,6 +21,7 @@
   row-gap: 14px;
 }
 
+/* Ряд с двумя полями */
 .form-row {
   width: 100%;
   display: flex;
@@ -22,10 +29,15 @@
   gap: 14px;
 }
 
+/* Группа полей */
 .form-group {
   width: 100%;
   position: relative;
 }
+
+/* ============================================
+   ОБЫЧНЫЕ ПОЛЯ ВВОДА (input)
+   ============================================ */
 
 .form-input {
   width: 100%;
@@ -36,6 +48,7 @@
   padding: 13px 18px;
   font-size: 12px;
   font-family: inherit;
+  background-color: var(--white-color);
   transition: border-color var(--hover-effect);
 }
 
@@ -49,6 +62,31 @@
   font-size: 12px;
 }
 
+/* ============================================
+   SELECT (выпадающий список статуса)
+   ============================================ */
+
+.form-select {
+  width: 100%;
+  height: 44px;
+  border-radius: 60px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  padding: 13px 18px;
+  font-size: 12px;
+  background-color: var(--white-color);
+  cursor: pointer;
+}
+
+.form-select:hover,
+.form-select:focus {
+  border-color: var(--accent-color);
+}
+
+/* ============================================
+   СКРЫТОЕ ПОЛЕ (для react-hook-form)
+   ============================================ */
+
 .hidden-input {
   position: absolute;
   width: 1px;
@@ -60,6 +98,10 @@
   clip: rect(0 0 0 0);
 }
 
+/* ============================================
+   ТЕКСТ ОШИБКИ
+   ============================================ */
+
 .error-text {
   color: var(--expense-color);
   font-size: 10px;
@@ -67,6 +109,10 @@
   margin-left: 18px;
   display: block;
 }
+
+/* ============================================
+   АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ (768px и выше)
+   ============================================ */
 
 @media screen and (min-width: 768px) {
   .form-title {
@@ -84,6 +130,10 @@
   }
 
   .form-input {
+    width: 224px;
+  }
+
+  .form-select {
     width: 224px;
   }
 }
