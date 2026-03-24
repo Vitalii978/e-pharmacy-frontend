@@ -109,7 +109,7 @@
   }
 
   .filter-input-wrapper {
-    max-width: 224px;
+    min-width: 224px;
   }
 }
 

@@ -1,0 +1,30 @@
+/* ============================================
+   EditBtn.css - СТИЛИ ДЛЯ КНОПКИ РЕДАКТИРОВАНИЯ
+   ============================================ */
+
+.edit-supplier-btn {
+  width: 82px;
+  height: 34px;
+  outline: none;
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: all var(--hover-effect);
+}
+
+.edit-supplier-btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(89, 177, 122, 0.1);
+}
+
+.edit-supplier-btn svg {
+  stroke: var(--accent-color);
+}

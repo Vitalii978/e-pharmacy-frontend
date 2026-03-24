@@ -20,6 +20,29 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
+// ============================================
+// ДОБАВЛЯЕМ ИНТЕРСЕПТОР ДЛЯ ОБРАБОТКИ 401 ОШИБКИ
+// ============================================
+axios.interceptors.response.use(
+  response => response,
+  error => {
+    // Если сервер вернул 401 (Unauthorized)
+    if (error.response?.status === 401) {
+      // Очищаем токен из заголовков
+      clearAuthHeader();
+
+      // Очищаем localStorage
+      localStorage.removeItem('persist:auth');
+
+      // Редирект на страницу логина
+      window.location.href = '/login';
+
+      toast.error('Session expired. Please login again.');
+    }
+    return Promise.reject(error);
+  }
+);
+
 // ===== ОПЕРАЦИЯ ЛОГИНА =====
 // createAsyncThunk создает действие, которое может быть pending/fulfilled/rejected
 export const logIn = createAsyncThunk(
@@ -35,7 +58,6 @@ export const logIn = createAsyncThunk(
 
       // Показываем приветствие
       toast.success(`Welcome ${res.data.name}`);
-      console.log('Toast success вызван'); // ← добавь для проверки
 
       // Возвращаем данные (попадут в action.payload у fulfilled)
       return res.data; // { name, email, token }
@@ -54,6 +76,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.get('api/user/logout');
     // Убираем токен из заголовков
     clearAuthHeader();
+
+    // Очищаем localStorage
+    localStorage.removeItem('persist:auth');
 
     // ← ДОБАВЛЯЕМ ТОСТ ДЛЯ ВЫХОДА
     toast.info('You have been logged out'); // ← ЭТО НУЖНО ДОБАВИТЬ
@@ -86,6 +111,12 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('api/user/user-info');
       return res.data; // { name, email }
     } catch (error) {
+      // Если 401 - очищаем
+      if (error.response?.status === 401) {
+        localStorage.removeItem('persist:auth');
+        clearAuthHeader();
+      }
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }

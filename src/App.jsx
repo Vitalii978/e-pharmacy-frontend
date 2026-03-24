@@ -16,7 +16,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const OrdersPage = lazy(() => import('./pages/OrdersPage/OrdersPage'));
 const ProductsPage = lazy(() => import('./pages/ProductsPage/ProductsPage')); // ← ДОБАВЛЯЕМ
-// const SuppliersPage = lazy(() => import('./pages/SuppliersPage/SuppliersPage'));
+const SuppliersPage = lazy(() => import('./pages/SuppliersPage/SuppliersPage'));
 const CustomersPage = lazy(() => import('./pages/CustomersPage/CustomersPage'));
 const SharedLayout = lazy(
   () => import('./components/SharedLayout/SharedLayout')
@@ -53,8 +53,7 @@ function App() {
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="orders" element={<OrdersPage />} />
           <Route path="products" element={<ProductsPage />} />{' '}
-          {/* ← ДОБАВЛЯЕМ */}
-          <Route path="suppliers" element={<div>Suppliers Page</div>} />
+          <Route path="suppliers" element={<SuppliersPage />} />
           <Route path="customers" element={<CustomersPage />} />
         </Route>
       </Routes>

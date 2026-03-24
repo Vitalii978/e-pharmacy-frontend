@@ -1,0 +1,10 @@
+.calendar-icon {
+  fill: none;
+  stroke: var(--accent-color);
+  transition: stroke var(--hover-effect);
+  cursor: pointer;
+}
+
+.calendar-icon:hover {
+  stroke: var(--hover-accent);
+}

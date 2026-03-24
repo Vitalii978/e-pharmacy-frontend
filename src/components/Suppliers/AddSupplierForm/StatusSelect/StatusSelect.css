@@ -1,0 +1,96 @@
+/* ============================================
+   StatusSelect.css - СТИЛИ ДЛЯ ВЫБОРА СТАТУСА
+   ============================================ */
+
+/* Основное поле */
+.status-select__control {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  height: 44px;
+  background: var(--white-color);
+  padding-left: 8px;
+  border-radius: 30px;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--main-black);
+  cursor: pointer;
+}
+
+.status-select__control:hover {
+  border-color: var(--accent-color);
+}
+
+.status-select__control--is-focused {
+  border-color: var(--accent-color);
+  box-shadow: none;
+}
+
+/* Значение внутри поля */
+.status-select__value-container {
+  padding: 0;
+}
+
+.status-select__single-value {
+  color: var(--main-black);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Плейсхолдер (текст-подсказка) */
+.status-select__placeholder {
+  color: var(--placeholder-color);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Индикатор (стрелка) */
+.status-select__indicator {
+  color: var(--placeholder-color);
+}
+
+/* Выпадающее меню */
+.status-select__menu {
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Пункты меню */
+.status-select__option {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Inter;
+  line-height: 1.25;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 8px 12px;
+}
+
+.status-select__option--is-focused {
+  background-color: transparent;
+  color: var(--white-color);
+}
+
+.status-select__option--is-selected {
+  background-color: transparent;
+  color: var(--white-color);
+}
+
+/* Крестик для сброса */
+.status-select__clear-indicator {
+  color: var(--placeholder-color);
+  cursor: pointer;
+}
+
+.status-select__clear-indicator:hover {
+  color: var(--accent-color);
+}
+
+/* Для планшетов */
+@media screen and (min-width: 768px) {
+  .status-select__control {
+    width: 224px;
+  }
+}

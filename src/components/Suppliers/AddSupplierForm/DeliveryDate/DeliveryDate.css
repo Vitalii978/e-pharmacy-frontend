@@ -1,0 +1,62 @@
+/* ============================================
+   DeliveryDate.css - СТИЛИ ДЛЯ КАЛЕНДАРЯ
+   ============================================ */
+
+/* Контейнер */
+.delivery-date-wrapper {
+  width: 100%;
+}
+
+/* Поле ввода даты */
+.date-picker-field .MuiInputBase-root {
+  width: 100%;
+  height: 40px;
+  font-size: 12px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color);
+  transition: border-color var(--hover-effect);
+}
+
+.date-picker-field .MuiInputBase-root:hover {
+  border-color: var(--accent-color);
+}
+
+.date-picker-field .MuiInputBase-root.Mui-focused {
+  border-color: var(--accent-color);
+}
+
+/* Поле внутри */
+.date-picker-field .MuiInputBase-input {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-family: Inter;
+}
+
+/* Лейбл (текст-подсказка) */
+.date-picker-field .MuiFormLabel-root {
+  font-size: 12px;
+  color: var(--placeholder-color);
+  top: 4px;
+  left: 8px;
+  background: transparent;
+}
+
+/* Скрываем лейбл когда есть значение */
+.date-picker-field .MuiFormLabel-root[data-shrink='true'] {
+  display: none;
+}
+
+/* Выпадающее окно календаря */
+.date-picker-popper .MuiPaper-root {
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Для планшетов */
+@media screen and (min-width: 768px) {
+  .date-picker-field .MuiInputBase-root {
+    width: 224px;
+  }
+}

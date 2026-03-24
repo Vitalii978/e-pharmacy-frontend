@@ -1,0 +1,21 @@
+/* ============================================
+   SuppliersPage.css - СТИЛИ ДЛЯ СТРАНИЦЫ ПОСТАВЩИКОВ
+   ============================================ */
+
+/* Контейнер для фильтра и кнопки */
+.suppliers-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* На планшетах фильтр и кнопка в ряд */
+@media screen and (min-width: 768px) {
+  .suppliers-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
