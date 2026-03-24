@@ -78,6 +78,7 @@ const LoginForm = () => {
           type={showPassword ? 'text' : 'password'} // тип поля: если showPassword=true - текст (видно), если false - password (скрыто)
           {...register('password')} // приклеиваем к форме с именем "password"
           placeholder="Password" // подсказка
+          autoComplete="current-password" // автозаполнение
           className="form-input" // класс для стилей
         />
         {/* КНОПКА-ГЛАЗИК для показа/скрытия пароля */}
