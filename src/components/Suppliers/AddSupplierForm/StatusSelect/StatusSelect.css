@@ -2,14 +2,13 @@
    StatusSelect.css - СТИЛИ ДЛЯ ВЫБОРА СТАТУСА
    ============================================ */
 
-/* Основное поле */
-.status-select__control {
+/* .status-select__control {
   border: 1px solid var(--border-color);
   width: 100%;
   height: 44px;
   background: var(--white-color);
   padding-left: 8px;
-  border-radius: 30px;
+  border-radius: 60px;
   box-shadow: none;
   font-size: 12px;
   font-weight: 500;
@@ -26,7 +25,7 @@
   box-shadow: none;
 }
 
-/* Значение внутри поля */
+
 .status-select__value-container {
   padding: 0;
 }
@@ -37,26 +36,26 @@
   font-weight: 500;
 }
 
-/* Плейсхолдер (текст-подсказка) */
+
 .status-select__placeholder {
   color: var(--placeholder-color);
   font-size: 12px;
   font-weight: 400;
 }
 
-/* Индикатор (стрелка) */
+
 .status-select__indicator {
   color: var(--placeholder-color);
 }
 
-/* Выпадающее меню */
+
 .status-select__menu {
   background-color: var(--accent-color);
   border-radius: 15px;
   overflow: hidden;
 }
 
-/* Пункты меню */
+
 .status-select__option {
   font-size: 14px;
   font-weight: 500;
@@ -78,7 +77,7 @@
   color: var(--white-color);
 }
 
-/* Крестик для сброса */
+
 .status-select__clear-indicator {
   color: var(--placeholder-color);
   cursor: pointer;
@@ -88,9 +87,110 @@
   color: var(--accent-color);
 }
 
-/* Для планшетов */
+
 @media screen and (min-width: 768px) {
   .status-select__control {
+    width: 224px;
+  }
+} */
+
+/* ============================================
+   DeliveryDate.css - СТИЛИ ДЛЯ КАЛЕНДАРЯ
+   ============================================ */
+
+/* Контейнер */
+.delivery-date-wrapper {
+  width: 100%;
+}
+
+/* ============================================
+   ПОЛЕ ВВОДА ДАТЫ - ОВАЛЬНАЯ ФОРМА
+   ============================================ */
+
+/* Повышаем специфичность - используем двойной селектор */
+.delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root {
+  width: 100%;
+  height: 44px;
+  border-radius: 60px;
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color);
+  transition: border-color var(--hover-effect);
+  padding-left: 8px;
+}
+
+.delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root:hover {
+  border-color: var(--accent-color);
+}
+
+.delivery-date-wrapper .MuiInputBase-root.Mui-focused {
+  border-color: var(--accent-color);
+  box-shadow: none;
+}
+
+.delivery-date-wrapper .MuiInputBase-input.MuiOutlinedInput-input {
+  padding: 13px 18px;
+  font-size: 12px;
+  font-family: Inter;
+  height: auto;
+  color: var(--main-black);
+}
+
+/* Убираем стандартную обводку MUI */
+.delivery-date-wrapper .MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+
+/* Лейбл (текст-подсказка) */
+.delivery-date-wrapper .MuiFormLabel-root.MuiInputLabel-root {
+  font-size: 12px;
+  color: var(--placeholder-color);
+  top: 4px;
+  left: 8px;
+  background: transparent;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.delivery-date-wrapper .MuiFormLabel-root[data-shrink='true'] {
+  display: none;
+}
+
+/* ============================================
+   ВЫПАДАЮЩЕЕ ОКНО КАЛЕНДАРЯ
+   ============================================ */
+
+.date-picker-popper .MuiPaper-root.MuiPaper-elevation {
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Дни в календаре */
+.date-picker-popper .MuiPickersDay-root {
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.date-picker-popper .MuiPickersDay-root:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.date-picker-popper .MuiPickersDay-root.Mui-selected {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.date-picker-popper .MuiPickersDay-root.Mui-selected:hover {
+  background-color: var(--hover-accent);
+}
+
+/* ============================================
+   АДАПТАЦИЯ
+   ============================================ */
+@media screen and (min-width: 768px) {
+  .delivery-date-wrapper .MuiInputBase-root.MuiOutlinedInput-root {
     width: 224px;
   }
 }
