@@ -1,108 +1,95 @@
-/* СТИЛИ ДЛЯ ФОРМЫ - как контейнер для всего */
 .login-form {
-  margin-top: 40px; /* отступ сверху 40 пикселей */
-  max-width: 335px; /* максимальная ширина 335px */
-  width: 100%; /* занимает всю доступную ширину (но не больше max-width) */
-  display: flex; /* включаем flexbox (резиновый режим) */
-  flex-direction: column; /* элементы располагаются в колонку (сверху вниз) */
-  align-items: center; /* выравниваем по центру */
-  row-gap: 14px; /* расстояние между элементами по вертикали 14px */
+  margin-top: 40px;
+  max-width: 335px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 14px;
 }
 
-/* СТИЛИ ДЛЯ LABEL - обертки вокруг каждого поля */
 .form-label {
-  width: 100%; /* занимает всю ширину формы */
-  position: relative; /* relative - чтобы можно было абсолютно позиционировать кнопку внутри */
+  width: 100%;
+  position: relative;
 }
 
-/* СТИЛИ ДЛЯ INPUT - сами поля ввода */
 .form-label input {
-  width: 100%; /* поле на всю ширину label */
-  height: 44px; /* высота 44 пикселя */
-  border-radius: 60px; /* скругление углов 60px (получается овал) */
-  border: 1px solid rgba(29, 30, 33, 0.1); /* рамка: толщина 1px, цвет полупрозрачный черный */
-  padding-left: 18px; /* отступ текста от левого края 18px */
-  outline: none; /* убираем обводку при фокусе (будем свою делать) */
-  transition: border 400ms ease; /* плавное изменение рамки за 400ms */
+  width: 100%;
+  height: 44px;
+  border-radius: 60px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  padding-left: 18px;
+  outline: none;
+  transition: border 400ms ease;
 }
 
-/* СТИЛИ ДЛЯ INPUT В ФОКУСЕ - когда поле активно (кликнули) */
 .form-label input:focus {
-  border: 1px solid #59b17a; /* рамка становится зеленой */
+  border: 1px solid #59b17a;
 }
 
-/* СТИЛИ ДЛЯ ПЛЕЙСХОЛДЕРА - подсказки внутри поля */
 .form-label input::placeholder {
-  color: rgba(29, 30, 33, 0.4); /* цвет текста полупрозрачный черный */
-  font-size: 12px; /* размер шрифта 12px */
-  font-family: 'Inter', sans-serif; /* шрифт Inter */
+  color: rgba(29, 30, 33, 0.4);
+  font-size: 12px;
 }
 
-/* СТИЛИ ДЛЯ КНОПКИ-ГЛАЗИКА */
 .password-toggle {
-  background-color: transparent; /* прозрачный фон */
-  border: none; /* без рамки */
-  outline: none; /* без обводки */
-  display: flex; /* включаем flexbox */
-  align-items: center; /* выравниваем по вертикали по центру */
-  justify-content: center; /* выравниваем по горизонтали по центру */
-  position: absolute; /* абсолютное позиционирование (относительно label) */
-  right: 5%; /* прижимаем к правому краю на 5% */
-  top: 20%; /* опускаем на 20% сверху */
-  cursor: pointer; /* курсор-пальчик при наведении */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 5%;
+  top: 20%;
+  cursor: pointer;
 }
 
-/* СТИЛИ ДЛЯ ИКОНКИ ВНУТРИ КНОПКИ */
 .password-toggle svg {
-  fill: none; /* без заливки */
-  stroke: rgba(29, 30, 33, 0.4); /* цвет обводки полупрозрачный черный */
-  transition: stroke 400ms ease; /* плавное изменение цвета */
+  fill: none;
+  stroke: rgba(29, 30, 33, 0.4);
+  transition: stroke 400ms ease;
 }
 
-/* СТИЛИ ДЛЯ ИКОНКИ ПРИ НАВЕДЕНИИ НА КНОПКУ */
 .password-toggle:hover svg {
-  stroke: #1d1e21; /* цвет обводки становится черным */
+  stroke: #1d1e21;
 }
 
-/* СТИЛИ ДЛЯ ТЕКСТА ОШИБОК */
 .error-text {
-  color: #e85050; /* красный цвет */
-  font-size: 10px; /* размер шрифта 10px */
-  margin-top: 2px; /* отступ сверху 2px */
-  margin-left: 18px; /* отступ слева 18px (чтобы под input'ом) */
+  color: #e85050;
+  font-size: 10px;
+  margin-top: 2px;
+  margin-left: 18px;
 }
 
-/* СТИЛИ ДЛЯ КНОПКИ ОТПРАВКИ */
 .submit-btn {
-  width: 100%; /* на всю ширину */
-  height: 44px; /* высота 44px */
-  border-radius: 60px; /* скругление 60px (овал) */
-  background-color: #59b17a; /* зеленый фон */
-  color: #fff; /* белый текст */
-  font-size: 14px; /* размер шрифта 14px */
-  font-weight: 500; /* полужирный */
-  border: none; /* без рамки */
-  cursor: pointer; /* курсор-пальчик */
-  transition: background-color 400ms ease; /* плавное изменение фона */
-  margin-top: 26px; /* отступ сверху 20px */
+  width: 100%;
+  height: 44px;
+  border-radius: 60px;
+  background-color: #59b17a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 400ms ease;
+  margin-top: 26px;
 }
 
-/* СТИЛИ ДЛЯ КНОПКИ ОТПРАВКИ ПРИ НАВЕДЕНИИ */
 .submit-btn:hover {
-  background-color: #3f945f; /* темно-зеленый фон */
+  background-color: #3f945f;
 }
 
-/* МЕДИА-ЗАПРОСЫ - стили для планшетов (ширина экрана от 768px) */
 @media screen and (min-width: 768px) {
   .login-form {
-    margin-top: 50px; /* увеличиваем отступ сверху */
-    max-width: 323px; /* немного меняем ширину */
+    margin-top: 50px;
+    max-width: 323px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .login-form {
-    margin-top: 307px; /* увеличиваем отступ сверху */
-    max-width: 323px; /* немного меняем ширину */
+    margin-top: 307px;
+    max-width: 323px;
   }
 }

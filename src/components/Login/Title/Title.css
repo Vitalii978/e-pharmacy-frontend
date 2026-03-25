@@ -1,18 +1,15 @@
-/* src/components/Login/Title/Title.css */
 .title-container {
   position: relative;
   margin-top: 160px;
   max-width: 280px;
 }
 
-/* Адаптив для 375px */
 @media screen and (min-width: 375px) {
   .title-container {
     max-width: 335px;
   }
 }
 
-/* Адаптив для планшета */
 @media screen and (min-width: 768px) {
   .title-container {
     max-width: 614px;
@@ -20,7 +17,6 @@
   }
 }
 
-/* Адаптив для десктопа */
 @media screen and (min-width: 1440px) {
   .title-container {
     margin-top: 370px;
@@ -50,7 +46,7 @@
 }
 
 .title-heading strong {
-  color: #10b981; /* accent-color */
+  color: #10b981;
 }
 
 .title-picture {

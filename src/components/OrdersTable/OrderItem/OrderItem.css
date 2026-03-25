@@ -1,7 +1,3 @@
-/* ============================================
-   OrderItem.css - СТИЛИ ДЛЯ СТРОКИ ТАБЛИЦЫ
-   ============================================ */
-
 .order-row {
   border-bottom: 1px solid var(--border-color);
 }
@@ -58,7 +54,7 @@
   color: var(--main-black);
 }
 
-.date-cell {
+.date-cellll {
   min-width: 120px;
   border-right: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);
@@ -139,7 +135,7 @@
     min-width: 280px;
   }
 
-  .date-cell {
+  .date-cellll {
     min-width: 180px;
   }
 

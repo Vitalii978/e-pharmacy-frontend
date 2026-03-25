@@ -1,11 +1,7 @@
-/* ============================================
-   Sidebar.css - СТИЛИ ДЛЯ БОКОВОГО МЕНЮ
-   ============================================ */
-
 .sidebar {
   position: fixed;
   left: 0;
-  top: 80px; /* высота шапки */
+  top: 80px;
   width: 80px;
   height: calc(100vh - 80px);
   background-color: var(--bg-main);
@@ -35,7 +31,6 @@
   fill: var(--icons-color);
 }
 
-/* Активная ссылка */
 .sidebar-link.active {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
@@ -44,7 +39,6 @@
   fill: var(--accent-color);
 }
 
-/* Ховер */
 .sidebar-link:hover {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }

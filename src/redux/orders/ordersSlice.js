@@ -1,52 +1,39 @@
-// ============================================
-// ordersSlice.js - SLICE ДЛЯ ЗАКАЗОВ
-// ============================================
-
-// 1. Импортируем createSlice для создания редьюсера
 import { createSlice } from '@reduxjs/toolkit';
-
-// 2. Импортируем операции, которые будем обрабатывать
 import { getOrders, getOrdersByQuery } from './operations';
 
-// 3. НАЧАЛЬНОЕ СОСТОЯНИЕ
 const initialState = {
-  orders: [], // массив заказов
-  isLoading: false, // флаг загрузки
-  isError: false, // флаг ошибки
+  orders: [],
+  isLoading: false,
+  isError: false,
 };
 
-// 4. СОЗДАЕМ SLICE
 const ordersSlice = createSlice({
-  name: 'orders', // имя slice (должно совпадать с именем в store)
+  name: 'orders',
   initialState,
-  reducers: {}, // обычные редьюсеры (пока не нужны)
+  reducers: {},
 
-  // 5. ОБРАБОТЧИКИ АСИНХРОННЫХ ДЕЙСТВИЙ
   extraReducers: builder => {
     builder
-      // ===== getOrders =====
-      // Когда началась загрузка
       .addCase(getOrders.pending, state => {
         state.isLoading = true;
       })
-      // Когда данные успешно загружены
+
       .addCase(getOrders.fulfilled, (state, action) => {
-        state.orders = action.payload; // сохраняем заказы
+        state.orders = action.payload;
         state.isLoading = false;
         state.isError = false;
       })
-      // Когда произошла ошибка
+
       .addCase(getOrders.rejected, state => {
         state.isLoading = false;
         state.isError = true;
       })
 
-      // ===== getOrdersByQuery =====
       .addCase(getOrdersByQuery.pending, state => {
         state.isLoading = true;
       })
       .addCase(getOrdersByQuery.fulfilled, (state, action) => {
-        state.orders = action.payload; // сохраняем отфильтрованные заказы
+        state.orders = action.payload;
         state.isLoading = false;
         state.isError = false;
       })
@@ -57,5 +44,4 @@ const ordersSlice = createSlice({
   },
 });
 
-// 6. ЭКСПОРТИРУЕМ REDUCER
 export const ordersReducer = ordersSlice.reducer;

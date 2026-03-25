@@ -1,8 +1,3 @@
-/* ============================================
-   NavMenu.css - СТИЛИ ДЛЯ МЕНЮ
-   ============================================ */
-
-/* Список меню */
 .nav-menu-list {
   list-style: none;
   padding: 0;
@@ -14,14 +9,12 @@
   margin-top: 92px;
 }
 
-/* Пункт меню */
 .nav-menu-item {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/* Ссылка меню */
 .nav-menu-link {
   width: 38px;
   height: 38px;
@@ -33,12 +26,10 @@
   transition: all var(--hover-effect);
 }
 
-/* Иконка в меню */
 .nav-menu-link svg {
   fill: var(--icons-color);
 }
 
-/* Активная ссылка (текущая страница) */
 .nav-menu-link.active {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
@@ -47,12 +38,10 @@
   fill: var(--accent-color);
 }
 
-/* Ховер (наведение) */
 .nav-menu-link:hover {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* Планшеты */
 @media screen and (min-width: 768px) {
   .nav-menu-link {
     width: 44px;

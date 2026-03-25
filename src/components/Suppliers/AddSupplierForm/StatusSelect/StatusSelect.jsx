@@ -1,7 +1,3 @@
-// ============================================
-// StatusSelect.jsx - КОМПОНЕНТ СЕЛЕКТА СТАТУСА
-// =============================================
-
 import React, { useState, useRef, useEffect } from 'react';
 import sprite from '../../../../assets/sprite.svg';
 import './StatusSelect.css';
@@ -21,19 +17,15 @@ const StatusSelect = ({ statusValue, setStatusValue }) => {
     setStatusValue(null);
   };
 
-  // Закрываем список при клике ВНЕ компонента (любое место вне status-select-wrapper)
   useEffect(() => {
     const handleClickOutside = event => {
-      // Если кликнули не внутри wrapperRef - закрываем список
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     };
 
-    // Добавляем слушатель на весь документ
     document.addEventListener('mousedown', handleClickOutside);
 
-    // При размонтировании удаляем слушатель
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };

@@ -1,14 +1,8 @@
-/* ============================================
-   CategorySelect.css - СТИЛИ ДЛЯ ВЫПАДАЮЩЕГО СПИСКА КАТЕГОРИЙ
-   ============================================ */
-
-/* Контейнер селекта */
 .category-select {
   width: 100%;
   font-family: 'Inter', sans-serif;
 }
 
-/* ОЧЕНЬ КОНКРЕТНЫЙ СЕЛЕКТОР - повышаем специфичность */
 div.category-select .category-select__control {
   border: 1px solid var(--border-color);
   width: 100%;
@@ -16,7 +10,7 @@ div.category-select .category-select__control {
   min-height: 44px;
   background: var(--white-color);
   padding-left: 8px;
-  border-radius: 60px !important; /* временно, пока не найдем решение */
+  border-radius: 60px !important;
   box-shadow: none;
   font-size: 12px;
   font-weight: 500;
@@ -29,31 +23,26 @@ div.category-select .category-select__control {
   outline: none;
 }
 
-/* Убираем вертикальную риску (разделитель) */
 .category-select__indicator-separator {
   display: none;
 }
 
-/* При наведении */
 div.category-select .category-select__control:hover {
   border-color: var(--accent-color);
 }
 
-/* При фокусе - убираем синий */
 div.category-select .category-select__control--is-focused {
   border-color: var(--accent-color);
   outline: none;
   box-shadow: none;
 }
 
-/* Плейсхолдер */
 div.category-select .category-select__placeholder {
   color: var(--placeholder-color);
   font-family: 'Inter', sans-serif;
   font-size: 12px;
 }
 
-/* Индикатор (стрелочка) */
 div.category-select .category-select__indicator {
   color: var(--placeholder-color);
   padding: 8px;
@@ -63,7 +52,6 @@ div.category-select .category-select__indicator:hover {
   color: var(--accent-color);
 }
 
-/* Выпадающее меню */
 div.category-select .category-select__menu {
   width: 100%;
   border-radius: 15px;
@@ -73,7 +61,6 @@ div.category-select .category-select__menu {
   overflow: hidden;
 }
 
-/* Элементы в выпадающем меню */
 div.category-select .category-select__option {
   font-size: 14px;
   font-weight: 500;

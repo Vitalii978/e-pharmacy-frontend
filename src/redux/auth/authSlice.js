@@ -1,98 +1,74 @@
-// Импортируем функцию создания "кусочка" хранилища из Redux Toolkit
 import { createSlice } from '@reduxjs/toolkit';
-
-// Импортируем операции (логин, логаут, обновление), которые будем обрабатывать
 import { logIn, logOut, refreshUser } from './operations';
 
-// Начальное состояние (что лежит в хранилище, когда сайт только загрузился)
 const initialState = {
-  user: { name: null, email: null }, // пользователь: имя и email (пока пусто)
-  token: null, // токен (пропуск) - пока пусто
-  isError: false, // была ли ошибка? пока нет
-  isLoggedIn: false, // залогинен ли пользователь? пока нет
-  isLoading: false, // идет ли загрузка? пока нет
-  isRefreshing: false, // обновляется ли пользователь? пока нет
+  user: { name: null, email: null },
+  token: null,
+  isError: false,
+  isLoggedIn: false,
+  isLoading: false,
+  isRefreshing: false,
 };
 
-// Создаем "slice" - кусочек хранилища для авторизации
 const authSlice = createSlice({
-  name: 'auth', // имя этого кусочка
-  initialState, // начальное состояние
-  reducers: {}, // обычные действия (пока нет)
+  name: 'auth',
+  initialState,
+  reducers: {},
 
-  // extraReducers - обрабатываем действия, которые приходят из operations.js
   extraReducers: builder => {
     builder
-      // ===== ЛОГИН =====
-      // Когда начался процесс логина
       .addCase(logIn.pending, state => {
-        state.isLoading = true; // включаем лоадер
+        state.isLoading = true;
       })
 
-      // Когда логин успешно завершился
       .addCase(logIn.fulfilled, (state, action) => {
-        // action.payload - это данные, которые вернул сервер
-        state.token = action.payload.token; // сохраняем токен
-        state.isLoggedIn = true; // пользователь залогинен
-        state.isLoading = false; // выключаем лоадер
-        state.isError = false; // ошибки нет
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        state.isError = false;
         state.user = {
           name: action.payload.name,
           email: action.payload.email,
-        }; // сохраняем данные пользователя
+        };
       })
 
-      // Когда логин провалился
       .addCase(logIn.rejected, state => {
-        state.isLoading = false; // выключаем лоадер
-        state.isError = true; // показываем ошибку
+        state.isLoading = false;
+        state.isError = true;
       })
 
-      // ===== ЛОГАУТ =====
       .addCase(logOut.pending, state => {
-        state.isLoading = true; // включаем лоадер
+        state.isLoading = true;
       })
       .addCase(logOut.fulfilled, state => {
-        state.token = null; // удаляем токен
-        state.isLoggedIn = false; // пользователь вышел
-        state.isLoading = false; // выключаем лоадер
-        state.user = { name: null, email: null }; // очищаем данные
-        state.isError = false; // ошибки нет
+        state.token = null;
+        state.isLoggedIn = false;
+        state.isLoading = false;
+        state.user = { name: null, email: null };
+        state.isError = false;
       })
       .addCase(logOut.rejected, state => {
-        state.isLoading = false; // выключаем лоадер
-        state.isError = true; // показываем ошибку
+        state.isLoading = false;
+        state.isError = true;
       })
 
-      // ===== ОБНОВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ (при перезагрузке) =====
       .addCase(refreshUser.pending, state => {
-        state.isRefreshing = true; // идет обновление
+        state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.isRefreshing = false; // обновление закончено
+        state.isRefreshing = false;
         state.user = {
           name: action.payload.name,
           email: action.payload.email,
-        }; // сохраняем данные
-        state.isLoggedIn = true; // пользователь залогинен
-        state.isError = false; // ошибки нет
+        };
+        state.isLoggedIn = true;
+        state.isError = false;
       })
       .addCase(refreshUser.rejected, state => {
-        state.isRefreshing = false; // обновление закончено
-        state.isError = true; // ошибка
+        state.isRefreshing = false;
+        state.isError = true;
       });
   },
 });
 
-// Экспортируем reducer, чтобы подключить в store
 export const authReducer = authSlice.reducer;
-
-// Что здесь происходит:
-
-// Мы создаем "ящик" с именем auth
-
-// В ящике лежат: user, token, isLoggedIn и т.д.
-
-// Мы говорим: "Когда придет действие logIn.fulfilled - положи в ящик токен и данные"
-
-// Когда придет logOut.fulfilled - выкинь всё из ящика

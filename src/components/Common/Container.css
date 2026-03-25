@@ -1,20 +1,17 @@
-/* Основной контейнер для страницы логина */
 .container {
-  max-width: 375px; /* Максимальная ширина для мобильных */
-  margin: 0 auto; /* Центрирование по горизонтали */
-  min-height: 100vh; /* Минимальная высота на весь экран */
+  max-width: 375px;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
-/* Планшеты (от 768px) */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px; /* Увеличиваем максимальную ширину */
+    max-width: 768px;
   }
 }
 
-/* Десктопы (от 1440px) */
 @media screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px; /* Максимальная ширина для десктопа */ /* Еще больше отступы */
+    max-width: 1440px;
   }
 }

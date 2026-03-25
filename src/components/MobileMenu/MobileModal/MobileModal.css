@@ -1,7 +1,3 @@
-/* ============================================
-   MobileModal.css - СТИЛИ ДЛЯ МОБИЛЬНОГО МЕНЮ
-   ============================================ */
-
 .mobile-backdrop {
   position: fixed;
   background: var(--bg-backdrop);

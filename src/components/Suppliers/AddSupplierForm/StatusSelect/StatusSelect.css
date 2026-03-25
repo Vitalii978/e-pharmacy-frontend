@@ -23,23 +23,19 @@
   border-color: var(--accent-color);
 }
 
-/* ВЫБРАННОЕ ЗНАЧЕНИЕ - ЧЕРНЫЙ ШРИФТ */
 .status-select-value {
   color: var(--main-black);
   font-size: 12px;
 }
 
-/* Если значение выбрано - тоже черный */
 .status-select-trigger.has-value .status-select-value {
   color: var(--main-black);
 }
 
-/* Плейсхолдер (когда ничего не выбрано) - серый */
 .status-select-trigger:not(.has-value) .status-select-value {
   color: var(--placeholder-color);
 }
 
-/* КРЕСТИК ДЛЯ СБРОСА */
 .status-clear-btn {
   position: absolute;
   right: 40px;
@@ -62,7 +58,6 @@
   color: var(--expense-color);
 }
 
-/* СТРЕЛКА ИЗ СПРАЙТА */
 .status-arrow {
   position: absolute;
   right: 16px;
@@ -74,7 +69,6 @@
   height: 14px;
 }
 
-/* ВЫПАДАЮЩИЙ СПИСОК - ВНИЗ */
 .status-select-dropdown {
   position: absolute;
   top: 50px;

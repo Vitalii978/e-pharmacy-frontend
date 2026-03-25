@@ -1,7 +1,3 @@
-/* ============================================
-   BurgerBtn.css - СТИЛИ ДЛЯ КНОПКИ-БУРГЕРА
-   ============================================ */
-
 .burger-btn {
   background-color: transparent;
   border: none;
@@ -18,7 +14,6 @@
   stroke: var(--main-black);
 }
 
-/* На десктопе бургер не показывается */
 @media screen and (min-width: 1440px) {
   .burger-btn {
     display: none;

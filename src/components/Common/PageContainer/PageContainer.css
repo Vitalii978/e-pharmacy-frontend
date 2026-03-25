@@ -1,7 +1,3 @@
-/* ============================================
-   PageContainer.css - ОБЩИЙ КОНТЕЙНЕР ДЛЯ СТРАНИЦ
-   ============================================ */
-
 .page-container {
   padding: 0 20px;
   width: 100%;
@@ -9,14 +5,12 @@
   overflow-x: auto;
 }
 
-/* Мобильные (до 767px) */
 @media screen and (max-width: 767px) {
   .page-container {
     max-width: 374px;
   }
 }
 
-/* Планшеты (768px - 1439px) */
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .page-container {
     max-width: 768px;
@@ -24,10 +18,9 @@
   }
 }
 
-/* Десктоп (1440px и больше) */
 @media screen and (min-width: 1440px) {
   .page-container {
-    max-width: 1360px; /* фиксированная ширина для центрирования */
+    max-width: 1360px;
     padding: 0 40px;
   }
 }

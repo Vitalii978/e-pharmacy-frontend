@@ -1,13 +1,8 @@
-/* ============================================
-   SuppliersSelect.css - СТИЛИ ДЛЯ ВЫПАДАЮЩЕГО СПИСКА ПОСТАВЩИКОВ
-   ============================================ */
-
 .suppliers-select {
   width: 100%;
   font-family: 'Inter', sans-serif;
 }
 
-/* ОЧЕНЬ КОНКРЕТНЫЙ СЕЛЕКТОР */
 div.suppliers-select .suppliers-select__control {
   border: 1px solid var(--border-color);
   width: 100%;
@@ -28,7 +23,6 @@ div.suppliers-select .suppliers-select__control {
   outline: none;
 }
 
-/* Убираем вертикальную риску (разделитель) */
 .suppliers-select__indicator-separator {
   display: none;
 }

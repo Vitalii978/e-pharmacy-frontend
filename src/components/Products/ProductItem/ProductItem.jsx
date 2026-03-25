@@ -1,7 +1,3 @@
-// ============================================
-// ProductItem.jsx - ОДНА СТРОКА В ТАБЛИЦЕ ПРОДУКТОВ
-// ============================================
-
 import React, { useState } from 'react';
 import Buttons from '../Buttons/Buttons';
 import EditProductForm from '../EditProductForm/EditProductForm';
@@ -9,7 +5,6 @@ import { useProducts } from '../../../hooks/useProducts';
 import './ProductItem.css';
 
 const ProductItem = ({ product }) => {
-  // console.log('ProductItem рендер, product:', product);
   const { name, category, price, stock, suppliers, _id } = product;
   const [isEdit, setIsEdit] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

@@ -4,7 +4,7 @@
   min-height: 100vh;
   background-image: url('../../assets/images/login/shapes-desktop.webp');
   background-repeat: no-repeat;
-  background-position: 135px 120%; /* Позиция фона: 135px справа, 120% снизу */
+  background-position: 135px 120%;
   background-size: 464px 345px;
 }
 
@@ -12,26 +12,17 @@
   margin-top: -12%;
 }
 
-/* Для Retina-экранов */
-/* @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .login-container {
-    background-image: url('../../../assets/images/login/shapes-desktop-1x.webp');
-  }
-} */
-
 @media screen and (min-width: 768px) {
   .login-container {
     padding: 24px 32px;
-    background-position: 470px 110%; /* Позиция фона: 135px справа, 120% снизу */
+    background-position: 470px 110%;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .login-container {
     padding: 24px 100px;
-    background-position: 1140px 120%; /* Позиция фона: 135px справа, 120% снизу */
+    background-position: 1140px 120%;
   }
 
   .login-content {

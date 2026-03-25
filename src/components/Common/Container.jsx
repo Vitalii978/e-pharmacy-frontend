@@ -1,14 +1,8 @@
-import React from 'react'; // Импорт React
-import './Container.css'; // Импорт стилей
+import React from 'react';
+import './Container.css';
 
 const Container = ({ children }) => {
-  // Компонент-обертка
-  return (
-    <section className="container">
-      {children}
-      {/* Сюда попадет Logo, Title, LoginForm*/}
-    </section>
-  );
+  return <section className="container">{children}</section>;
 };
 
 export default Container;

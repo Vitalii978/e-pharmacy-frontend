@@ -1,26 +1,18 @@
-import React from 'react'; // Импорт React
-import { useDispatch } from 'react-redux'; // Хук для отправки действий в Redux
-import { logOut } from '../../../redux/auth/operations'; // Операция выхода
-import sprite from '../../../assets/sprite.svg'; // Импорт спрайта
-import './LogoutBtn.css'; // Импорт стилей
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../../redux/auth/operations';
+import sprite from '../../../assets/sprite.svg';
+import './LogoutBtn.css';
 
 const LogoutBtn = () => {
-  // Компонент кнопки выхода
-  // Получаем функцию dispatch для отправки действий
   const dispatch = useDispatch();
 
-  // Функция выхода
   const onLogout = () => {
-    // Функция при клике
-    dispatch(logOut()); // Отправляем действие выхода в Redux
+    dispatch(logOut());
   };
 
   return (
-    <button
-      type="button" // Кнопка не отправляет форму
-      className="logout-btn" // Класс для стилей
-      onClick={onLogout} // При клике вызываем onLogout
-    >
+    <button type="button" className="logout-btn" onClick={onLogout}>
       <svg width={16} height={16}>
         {' '}
         // Иконка выхода
@@ -30,4 +22,4 @@ const LogoutBtn = () => {
   );
 };
 
-export default LogoutBtn; // Экспорт компонента
+export default LogoutBtn;

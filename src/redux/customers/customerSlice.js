@@ -1,43 +1,33 @@
-// ============================================
-// customers/customerSlice.js - ЗДЕСЬ МЫ ХРАНИМ КЛИЕНТОВ
-// ============================================
-
 import { createSlice } from '@reduxjs/toolkit';
 import { getCustomers, getCustomersByQuery } from './operations';
 
-// initialState - что лежит на складе, когда страница только загрузилась
 const initialState = {
-  customers: [], // список клиентов (пустой)
-  isLoading: false, // идет загрузка? (нет)
-  isError: false, // есть ошибка? (нет)
+  customers: [],
+  isLoading: false,
+  isError: false,
 };
 
 const customerSlice = createSlice({
-  name: 'customers', // имя этого ящика в хранилище
-  initialState, // начальное состояние
-  reducers: {}, // обычные действия (пока нет)
+  name: 'customers',
+  initialState,
+  reducers: {},
 
-  // extraReducers - обрабатываем действия из operations.js
   extraReducers: builder => {
     builder
-      // когда запрос НАЧАЛСЯ
       .addCase(getCustomers.pending, state => {
-        state.isLoading = true; // включаем лоадер
+        state.isLoading = true;
       })
 
-      // когда запрос УСПЕШНО ЗАВЕРШИЛСЯ
       .addCase(getCustomers.fulfilled, (state, action) => {
-        state.customers = action.payload; // кладем клиентов
-        state.isLoading = false; // выключаем лоадер
+        state.customers = action.payload;
+        state.isLoading = false;
       })
 
-      // когда запрос ПРОВАЛИЛСЯ
       .addCase(getCustomers.rejected, state => {
-        state.isLoading = false; // выключаем лоадер
-        state.isError = true; // показываем ошибку
+        state.isLoading = false;
+        state.isError = true;
       })
 
-      // для поиска - то же самое
       .addCase(getCustomersByQuery.fulfilled, (state, action) => {
         state.customers = action.payload;
         state.isLoading = false;

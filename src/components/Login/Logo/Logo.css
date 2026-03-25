@@ -1,39 +1,33 @@
-/* Стили для ссылки-логотипа */
 .logo-link {
-  display: flex; /* Располагаем элементы в ряд */
-  align-items: center; /* Выравниваем по вертикали по центру */
-  column-gap: 14px; /* Отступ между картинкой и текстом 14px */
-  /* margin-top: 24px;  */
-  text-decoration: none; /* Убираем подчеркивание ссылки */
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  text-decoration: none;
 }
 
-/* Стили для картинки логотипа */
 .logo-image {
-  width: 44px; /* Ширина 44px */
-  height: 44px; /* Высота 44px */
-  display: block; /* Чтобы не было лишних отступов */
+  width: 44px;
+  height: 44px;
+  display: block;
 }
 
-/* Стили для текста логотипа */
 .logo-text {
-  font-size: 20px; /* Размер шрифта 20px */
-  font-weight: 600; /* Жирность шрифта 600 (полужирный) */
-  letter-spacing: -0.03em; /* Межбуквенный интервал */
-  color: #1d1e21; /* Цвет текста черный */
-  margin: 0; /* Убираем стандартные отступы */
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #1d1e21;
+  margin: 0;
 }
 
-/* Медиа-запрос для планшетов (от 768px) */
 @media screen and (min-width: 768px) {
   .logo-image {
-    width: 40px; /* На планшете картинка меньше */
+    width: 40px;
     height: 40px;
   }
 }
 
-/* Медиа-запрос для десктопа (от 1440px) */
 @media screen and (min-width: 1440px) {
   .logo-image {
-    margin-left: 0; /* На десктопе возвращаем на место */
+    margin-left: 0;
   }
 }

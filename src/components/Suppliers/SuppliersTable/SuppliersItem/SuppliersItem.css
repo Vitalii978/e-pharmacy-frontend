@@ -1,14 +1,6 @@
-/* ============================================
-   SuppliersItem.css - СТИЛИ ДЛЯ СТРОКИ ТАБЛИЦЫ
-   ============================================ */
-
 .supplier-row {
   border-bottom: 1px solid var(--border-color);
 }
-
-/* .supplier-row:last-child {
-  border-bottom: none;
-} */
 
 .supplier-celll {
   padding: 14px;
@@ -24,43 +16,32 @@
   border-right: none;
 }
 
-/* Ячейка с именем */
 .name-celll {
   min-width: 128px;
 }
 
-/* Ячейка с адресом */
 .address-celll {
   min-width: 94px;
 }
 
-/* Ячейка с компанией */
 .company-celll {
   min-width: 83px;
 }
 
-/* Ячейка с датой */
 .date-celll {
   min-width: 129px;
 }
 
-/* Ячейка с суммой */
 .amount-celll {
   min-width: 100px;
   font-weight: 600;
 }
 
-/* Ячейка со статусом */
 .status-celll {
   min-width: 100px;
   padding: 14px;
 }
 
-/* ============================================
-   СТАТУС - ОВАЛЬНЫЙ БЕЙДЖ
-   ============================================ */
-
-/* Бейдж статуса (овальная форма) */
 .status-badge {
   display: flex;
   -webkit-box-align: center;
@@ -77,19 +58,16 @@
   margin: 0px auto;
 }
 
-/* Активный статус - зеленый */
 .status-badge.active {
   background-color: rgba(89, 177, 122, 0.1);
   color: var(--accent-color);
 }
 
-/* Неактивный статус - красный */
 .status-badge.deactive {
   background-color: rgba(232, 80, 80, 0.1);
   color: var(--expense-color);
 }
 
-/* Кнопка редактирования */
 .action-celll {
   min-width: 80px;
 }
@@ -114,47 +92,36 @@
   .supplier-celll {
     padding: 20px;
     font-size: 16px;
-    line-height: 1.125;
+    line-height: 1.13;
     font-weight: 500;
   }
 
-  /* Ячейка с именем */
   .name-celll {
     min-width: 195px;
   }
 
-  /* Ячейка с адресом */
   .address-celll {
     min-width: 128px;
   }
 
-  /* Ячейка с компанией */
   .company-celll {
     min-width: 108px;
   }
 
-  /* Ячейка с датой */
   .date-celll {
     min-width: 200px;
   }
 
-  /* Ячейка с суммой */
   .amount-celll {
     min-width: 120px;
     font-weight: 600;
   }
 
-  /* Ячейка со статусом */
   .status-celll {
     min-width: 130px;
     padding: 14px;
   }
 
-  /* ============================================
-   СТАТУС - ОВАЛЬНЫЙ БЕЙДЖ
-   ============================================ */
-
-  /* Бейдж статуса (овальная форма) */
   .status-badge {
     display: flex;
     -webkit-box-align: center;

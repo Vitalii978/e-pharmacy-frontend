@@ -1,15 +1,8 @@
-/* ============================================
-   ProductsTable.css - СТИЛИ ДЛЯ ТАБЛИЦЫ ПРОДУКТОВ
-   ============================================ */
-
-/* Контейнер таблицы (для горизонтального скролла на мобильных) */
 .products-table-container {
   width: 100%;
   overflow-x: auto;
-  /* margin-top: 24px; */
 }
 
-/* Таблица */
 .products-table {
   width: 100%;
   min-width: 670px;
@@ -20,7 +13,6 @@
   overflow: hidden;
 }
 
-/* Заголовок таблицы (caption) */
 .table-caption {
   text-align: left;
   padding: 14px 20px;
@@ -28,10 +20,8 @@
   font-size: 16px;
   font-weight: 600;
   color: var(--main-black);
-  /* border-bottom: 1px solid var(--border-color); */
 }
 
-/* Заголовки колонок */
 .table-header {
   text-align: left;
   padding: 14px 20px;
@@ -47,7 +37,6 @@
   border-right: none;
 }
 
-/* Ячейки таблицы */
 .products-table td {
   padding: 14px 20px;
   font-size: 12px;
@@ -62,17 +51,14 @@
   border-right: none;
 }
 
-/* Последняя строка - без нижней границы */
 .products-table tr:last-child td {
   border-bottom: none;
 }
 
-/* Убираем фон при наведении */
 .products-table tr:hover td {
   background-color: var(--white-color);
 }
 
-/* Специфичные стили для колонок (через классы на td) */
 .products-table td.name-cell {
   min-width: 160px;
 }
@@ -99,7 +85,6 @@
   min-width: 100px;
 }
 
-/* Сообщение "нет данных" */
 .no-data {
   text-align: center;
   padding: 40px;
@@ -107,7 +92,6 @@
   font-size: 16px;
 }
 
-/* Пагинация */
 .pagination {
   display: flex;
   justify-content: center;
@@ -131,7 +115,6 @@
   background-color: var(--accent-color);
 }
 
-/* Адаптация для планшетов */
 @media screen and (min-width: 768px) {
   .table-caption {
     font-size: 18px;

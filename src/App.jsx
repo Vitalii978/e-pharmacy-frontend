@@ -1,21 +1,16 @@
-// ============================================
-// App.jsx - ГЛАВНЫЙ КОМПОНЕНТ С МАРШРУТАМИ
-// ============================================
-
 import React, { useEffect, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from './redux/auth/operations';
 import { RestrictedRoute } from './components/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute';
-import 'react-toastify/dist/ReactToastify.css'; // ← импортируем стили
-import { ToastContainer } from 'react-toastify'; // ← импорт
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
-// Ленивая загрузка страниц
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const OrdersPage = lazy(() => import('./pages/OrdersPage/OrdersPage'));
-const ProductsPage = lazy(() => import('./pages/ProductsPage/ProductsPage')); // ← ДОБАВЛЯЕМ
+const ProductsPage = lazy(() => import('./pages/ProductsPage/ProductsPage'));
 const SuppliersPage = lazy(() => import('./pages/SuppliersPage/SuppliersPage'));
 const CustomersPage = lazy(() => import('./pages/CustomersPage/CustomersPage'));
 const SharedLayout = lazy(
@@ -58,7 +53,6 @@ function App() {
         </Route>
       </Routes>
 
-      {/* ToastContainer - один для всего приложения */}
       <ToastContainer
         position="top-right"
         autoClose={3000}

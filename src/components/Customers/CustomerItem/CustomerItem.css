@@ -1,14 +1,6 @@
-/* ============================================
-   CustomerItem.css - СТИЛИ ДЛЯ СТРОКИ ТАБЛИЦЫ КЛИЕНТОВ
-   ============================================ */
-
 .customer-row {
   border-bottom: 1px solid var(--border-color);
 }
-
-/* .customer-row:last-child {
-  border-bottom: none;
-} */
 
 .customer-cell {
   padding: 14px 8px;
@@ -24,15 +16,12 @@
   border-right: none;
 }
 
-/* Ячейка с пользователем */
 .user-cell {
   min-width: 128px;
-  /* max-width: 128px; */
 }
 
 .user-info {
   display: flex;
-  /* align-items: left; */
   flex-direction: column;
   gap: 8px;
 }
@@ -48,7 +37,6 @@
   font-weight: 500;
 }
 
-/* Ячейка с email */
 .email-cell {
   min-width: 230px;
   max-width: 230px;
@@ -57,29 +45,24 @@
   text-overflow: ellipsis;
 }
 
-/* Ячейка с адресом */
 .address-cell {
   min-width: 280px;
 }
 
-/* Ячейка с телефоном */
 .phone-cell {
   min-width: 130px;
 }
 
-/* Ячейка с датой */
 .date-cell {
   min-width: 130px;
 }
 
-/* Планшеты */
 @media screen and (min-width: 768px) {
   .customer-cell {
     padding: 20px;
     font-size: 14px;
   }
 
-  /* Ячейка с пользователем */
   .user-cell {
     min-width: 215px;
     max-width: 215px;
@@ -94,23 +77,19 @@
     height: 36px;
   }
 
-  /* Ячейка с email */
   .email-cell {
     min-width: 280px;
     max-width: 280px;
   }
 
-  /* Ячейка с адресом */
   .address-cell {
     min-width: 280px;
   }
 
-  /* Ячейка с телефоном */
   .phone-cell {
     min-width: 130px;
   }
 
-  /* Ячейка с датой */
   .date-cell {
     min-width: 130px;
   }

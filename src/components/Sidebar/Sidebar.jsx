@@ -1,7 +1,3 @@
-// ============================================
-// Sidebar.jsx - БОКОВОЕ МЕНЮ ДЛЯ ДЕСКТОПА
-// ============================================
-
 import React from 'react';
 import NavMenu from '../MobileMenu/NavMenu/NavMenu';
 import './Sidebar.css';

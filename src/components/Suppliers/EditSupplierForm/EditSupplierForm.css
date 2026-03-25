@@ -1,13 +1,8 @@
-/* ============================================
-   EditSupplierForm.css - СТИЛИ ДЛЯ ФОРМЫ РЕДАКТИРОВАНИЯ
-   ============================================ */
-
 .form-title {
   font-size: 20px;
   font-weight: 600;
   color: var(--main-black);
   margin-top: 26px;
-  /* margin-right: auto; */
   margin-bottom: 20px;
 }
 

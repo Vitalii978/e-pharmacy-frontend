@@ -1,34 +1,30 @@
-/* Стили для кнопки выхода */
 .logout-btn {
-  background-color: #59b17a; /* Зеленый фон */
-  border: none; /* Без рамки */
-  outline: none; /* Без обводки */
-  border-radius: 50%; /* Круглая кнопка */
-  width: 38px; /* Ширина 38px */
-  height: 38px; /* Высота 38px */
-  display: flex; /* Включаем flexbox */
-  align-items: center; /* Выравнивание по центру */
-  justify-content: center; /* Выравнивание по центру */
-  cursor: pointer; /* Курсор-палец */
-  transition: all 400ms ease; /* Плавное изменение */
+  background-color: #59b17a;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 400ms ease;
 }
 
-/* Эффект при наведении */
 .logout-btn:hover {
-  background-color: #3f945f; /* Темно-зеленый фон */
+  background-color: #3f945f;
 }
 
-/* Стили для иконки */
 .logout-btn svg {
-  width: 16px; /* Ширина 16px */
-  height: 16px; /* Высота 16px */
-  stroke: white; /* Белая обводка */
+  width: 16px;
+  height: 16px;
+  stroke: white;
 }
 
-/* Медиа-запрос для планшетов */
 @media screen and (min-width: 768px) {
   .logout-btn {
-    width: 44px; /* Больше кнопка */
+    width: 44px;
     height: 44px;
   }
 }

@@ -75,7 +75,6 @@ const DeliveryDate = ({ setDateValue, dateValue }) => {
           onClick={() => setIsOpen(!isOpen)}
         />
 
-        {/* ТОЛЬКО ИКОНКА КАЛЕНДАРЯ - БЕЗ КРЕСТИКА */}
         <button
           type="button"
           className="calendar-icon-btn"

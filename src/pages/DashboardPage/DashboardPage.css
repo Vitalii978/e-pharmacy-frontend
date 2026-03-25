@@ -1,10 +1,5 @@
-/* ============================================
-   DashboardPage.css - СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
-   ============================================ */
-
 .dashboard-page {
   width: 100%;
-  /* max-width: 1440px; */
   margin: 0 auto;
   padding: 100px 20px 80px 20px;
 }
@@ -15,7 +10,6 @@
   gap: 40px;
 }
 
-/* Мобильные (до 767px) - вертикальное расположение */
 @media screen and (min-width: 374px) {
   .dashboard-page {
     padding: 100px 20px 80px 20px;
@@ -29,7 +23,6 @@
   }
 }
 
-/* Планшеты (768px - 1439px) - компоненты в ряд */
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .dashboard-page {
     padding: 100px 32px 40px 32px;
@@ -40,7 +33,6 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    /* margin-top: 20px; */
   }
 
   .dashboard-row > * {
@@ -48,7 +40,6 @@
   }
 }
 
-/* Десктоп (1440px и больше) */
 @media screen and (min-width: 1440px) {
   .dashboard-page {
     padding: 100px 40px 40px 40px;
